@@ -156,6 +156,8 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(ogonacht, randerLayer);
         this.physics.add.collider(ogonneun, wandLayer);
         this.physics.add.collider(ogonneun, randerLayer);
+        this.physics.add.collider(ogonzehn, wandLayer);
+        this.physics.add.collider(ogonzehn, randerLayer);
 
 
         this.physics.add.collider(player, ogon, gestorben, null, this);
