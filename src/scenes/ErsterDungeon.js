@@ -1,9 +1,6 @@
 var cursors;
 var player;
 var ogon;
-
-
-
 var lavaLayer;
 var wandLayer;
 var randerLayer;
