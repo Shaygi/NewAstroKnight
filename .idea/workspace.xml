@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="zehnter ogoni">
+      <change afterPath="$PROJECT_DIR$/src/assets/Blume.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/blob.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,14 +27,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shiri/IdeaProjects/NewAstroKnight/src&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/shiri/IdeaProjects/Astroknight"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src" />
@@ -44,7 +49,10 @@
       <option name="presentableId" value="Default" />
       <updated>1657458225668</updated>
       <workItem from="1657458227000" duration="984000" />
-      <workItem from="1657525444867" duration="32000" />
+      <workItem from="1657525444867" duration="66000" />
+      <workItem from="1657525938897" duration="52000" />
+      <workItem from="1657531025180" duration="1500000" />
+      <workItem from="1657555746897" duration="7196000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -53,7 +61,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657458493244</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="zehnter ogoni">
+      <created>1657525490730</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657525490730</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
