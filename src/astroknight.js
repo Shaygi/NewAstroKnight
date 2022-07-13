@@ -2,7 +2,7 @@ var config = {
     type: Phaser.AUTO,
     width: 1485,
     height: 700,
-    scene: [ZweiterDungeon],
+    scene: [MenueFenster, ErsterDungeon, ZweiterDungeon, DritterDungeon],
     physics: {
         default: 'arcade',
         arcade: {
