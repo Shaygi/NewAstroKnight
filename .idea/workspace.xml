@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="zehnter ogoni">
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="Menue button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/Options.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/Options.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/Play.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/Play.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/MenueFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenueFenster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Astro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
+    </list>
+    <list id="a1b9644e-391d-40d3-b55f-d011a523568b" name="Changes by dinara" comment="">
+      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +17,49 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/scenes/ErsterDungeon.js">
+      <ranges>
+        <range start1="1" end1="3" start2="1" end2="13" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="7" end1="7" start2="17" end2="28" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="11" end1="12" start2="32" end2="33" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="14" end1="15" start2="35" end2="36" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="22" end1="27" start2="43" end2="47" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="30" end1="30" start2="50" end2="51" changelist="a1b9644e-391d-40d3-b55f-d011a523568b" />
+        <range start1="31" end1="32" start2="52" end2="53" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="33" end1="33" start2="54" end2="77" changelist="a1b9644e-391d-40d3-b55f-d011a523568b" />
+        <range start1="35" end1="36" start2="79" end2="79" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="37" end1="38" start2="80" end2="81" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="39" end1="39" start2="82" end2="84" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="41" end1="41" start2="86" end2="87" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="51" end1="62" start2="97" end2="111" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="63" end1="66" start2="112" end2="114" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="68" end1="68" start2="116" end2="124" changelist="a1b9644e-391d-40d3-b55f-d011a523568b" />
+        <range start1="81" end1="82" start2="137" end2="137" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="88" end1="89" start2="143" end2="143" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="95" end1="97" start2="149" end2="149" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="109" end1="110" start2="161" end2="161" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="116" end1="117" start2="167" end2="167" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="130" end1="130" start2="180" end2="199" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="131" end1="131" start2="200" end2="202" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="134" end1="143" start2="205" end2="214" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="147" end1="149" start2="218" end2="220" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="158" end1="159" start2="229" end2="230" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="163" end1="164" start2="234" end2="244" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="170" end1="171" start2="250" end2="250" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="173" end1="173" start2="252" end2="296" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="176" end1="176" start2="299" end2="300" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="177" end1="183" start2="301" end2="302" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="184" end1="190" start2="303" end2="303" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="193" end1="194" start2="306" end2="306" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="196" end1="202" start2="308" end2="308" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="205" end1="206" start2="311" end2="311" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="208" end1="210" start2="313" end2="314" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="211" end1="212" start2="315" end2="315" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+        <range start1="221" end1="239" start2="324" end2="324" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,7 +99,8 @@
       <workItem from="1657525938897" duration="52000" />
       <workItem from="1657531025180" duration="1500000" />
       <workItem from="1657555746897" duration="7221000" />
-      <workItem from="1657717597805" duration="1140000" />
+      <workItem from="1657717597805" duration="1167000" />
+      <workItem from="1657726620992" duration="9763000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -78,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657563001389</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Menue button">
+      <created>1657718766664</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657718766664</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,6 +149,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="zehnter ogoni" />
-    <option name="LAST_COMMIT_MESSAGE" value="zehnter ogoni" />
+    <MESSAGE value="Menue button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menue button" />
   </component>
 </project>

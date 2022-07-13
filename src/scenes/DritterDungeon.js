@@ -192,9 +192,6 @@ class DritterDungeon extends Phaser.Scene {
             jumpCount = 0;
         }
 
-
-
-
     }
 
 
