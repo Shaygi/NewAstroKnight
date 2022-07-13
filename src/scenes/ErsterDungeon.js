@@ -48,9 +48,33 @@ class ErsterDungeon extends Phaser.Scene{
     }
 
     create(){
+
         function gestorben(){
             //Spieler auf die Ausgangsposition zurücksetzen
             player.setPosition(600, 200);
+            // damit ogons nicht weggeschubst werden, X und Y fixieren
+            ogon.setVelocityX(0);
+            ogon.setVelocityY(0);
+            ogoneins.setVelocityX(0);
+            ogoneins.setVelocityY(0);
+            ogonzwei.setVelocityX(0);
+            ogonzwei.setVelocityY(0);
+            ogondrei.setVelocityX(0);
+            ogondrei.setVelocityY(0);
+            ogonvier.setVelocityX(0);
+            ogonvier.setVelocityY(0);
+            ogonfuenf.setVelocityX(0);
+            ogonfuenf.setVelocityY(0);
+            ogonsechs.setVelocityX(0);
+            ogonsechs.setVelocityY(0);
+            ogonsieben.setVelocityX(0);
+            ogonsieben.setVelocityY(0);
+            ogonacht.setVelocityX(0);
+            ogonacht.setVelocityY(0);
+            ogonneun.setVelocityX(0);
+            ogonneun.setVelocityY(0);
+            ogonzehn.setVelocityX(0);
+            ogonzehn.setVelocityY(0);
         }
 
         function naechstesLevel(){
@@ -90,6 +114,14 @@ class ErsterDungeon extends Phaser.Scene{
         this.cameras.main.startFollow(player); //Kamera folgt Spieler
 
         cursors = this.input.keyboard.createCursorKeys();
+
+        //Animationen
+        this.anims.create({
+            key: 'walk',
+            frames: this.anims.generateFrameNumbers('ogoni', {start:0 , end: 0}),
+            frameRate: 16,
+            repeat: 1
+        });
 
         this.anims.create({
             key: 'left',
