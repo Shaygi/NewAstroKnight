@@ -1,10 +1,12 @@
 var cursors;
-var spacebar;
-var player;
+var playerzwei;
 var wandLayer;
 var dekoLayer;
 var wasserLayer;
 var ausgangsLayer;
+var blob;
+var speed;
+var rechtsoderlinks = 0;
 class ZweiterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -17,93 +19,97 @@ class ZweiterDungeon extends Phaser.Scene {
                 }
             }
         });
-
-
     }
 
     preload() {
         this.load.image("terrain", "assets/tilemaps/tiles.png"); //Tileset
         this.load.tilemapTiledJSON('dungeon', 'assets/tilemaps/Dungeon.json');
         this.load.spritesheet('astro2', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });
+        this.load.spritesheet('blob', 'assets/blob.png', {frameWidth: 480 , frameHeight: 480});
     }
-
-
 
     create() {
         function naechstesLevel(){
             this.scene.start('DritterDungeon');
         }
+        function gestorben(){
+            //player.anims.play('tod', true);
+            player.setPosition(600, 200);
+        }
         const dungeon = this.make.tilemap({ key: "dungeon" });
         let terrain = dungeon.addTilesetImage("DungeonTiles", "terrain");
         // layers
-        let schattenLayer = dungeon.createStaticLayer("schatten", terrain, -500, 0).setScale(5).setDepth(-1);
+        let schattenLayer = dungeon.createStaticLayer("schatten", terrain, -200, 0).setScale(5).setDepth(-1);
         let bodenLayer = dungeon.createStaticLayer("boden", terrain, 60, 0).setDepth(-1);
         wandLayer = dungeon.createStaticLayer("wand", terrain, 60, 0).setDepth(-1);
         let eingangLayer = dungeon.createStaticLayer("Eingang", terrain, 60, 0).setDepth(-1);
         ausgangsLayer = dungeon.createStaticLayer("Ausgang", terrain, 60, 0).setDepth(-1);
         dekoLayer = dungeon.createStaticLayer("deko", terrain, 60, 0).setDepth(-1);
         wasserLayer = dungeon.createStaticLayer("wasser", terrain, 60, 0).setDepth(-1);
-        player = this.physics.add.sprite(300, 590, 'astro2').setScale(0.15);
-        //player.body.setSize(22, 25, true);
-        player.setBounce(0.2);
+        playerzwei = this.physics.add.sprite(300, 590, 'astro2').setScale(0.15);
+        blob = this.physics.add.sprite(300, 690, 'blob').setScale(0.09);
+        //playerzwei.setBounce(0.2);
 
-        this.cameras.main.startFollow(player);
-        this.cameras.main.roundPixels = true;
+        this.cameras.main.startFollow(playerzwei);
 
 
+        this.anims.create({
+            key: 'blub',
+            frames: this.anims.generateFrameNumbers('blob', { start: 0, end: 5 }),
+            frameRate: 10,
+            repeat: -1
+        });
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('astro', { start: 17, end: 23 }),
+            frames: this.anims.generateFrameNumbers('astro2', { start: 17, end: 23 }),
             frameRate: 10,
             repeat: -1
         });
-
-
-
+        this.anims.create({
+            key: 'tod',
+            frames: this.anims.generateFrameNumbers('astro2', { start: 44, end: 49 }),
+            frameRate: 10,
+            repeat: 1
+        });
         this.anims.create({
             key: 'up',
-            frames: this.anims.generateFrameNumbers('astro', { start: 30, end: 33 }),
+            frames: this.anims.generateFrameNumbers('astro2', { start: 30, end: 33 }),
             frameRate: 10,
             repeat: -1
         });
-
         this.anims.create({
             key: 'down',
-            frames: this.anims.generateFrameNumbers('astro', { start: 17, end: 23 }),
+            frames: this.anims.generateFrameNumbers('astro2', { start: 17, end: 23 }),
             frameRate: 10,
             repeat: -1
         });
-
-
         this.anims.create({
             key: 'turnright',
-            frames:  this.anims.generateFrameNumbers('astro', { start: 0, end: 4 }),
+            frames:  this.anims.generateFrameNumbers('astro2', { start: 0, end: 4 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'turnleft',
-            frames:  this.anims.generateFrameNumbers('astro', { start: 5, end: 9 }),
+            frames:  this.anims.generateFrameNumbers('astro2', { start: 5, end: 9 }),
             frameRate: 10,
             repeat: -1
         });
-
         this.anims.create({
             key: 'right',
-            frames: this.anims.generateFrameNumbers('astro', { start: 10, end: 16 }),
+            frames: this.anims.generateFrameNumbers('astro2', { start: 10, end: 16 }),
             frameRate: 10,
             repeat: -1
         });
-
         this.anims.create({
             key: 'shootright',
-            frames: this.anims.generateFrameNumbers('astro', { start: 34, end: 38 }),
+            frames: this.anims.generateFrameNumbers('astro2', { start: 34, end: 38 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'shootleft',
-            frames: this.anims.generateFrameNumbers('astro', { start: 39, end: 43 }),
+            frames: this.anims.generateFrameNumbers('astro2', { start: 39, end: 43 }),
             frameRate: 10,
             repeat: -1
         });
@@ -111,36 +117,35 @@ class ZweiterDungeon extends Phaser.Scene {
         //  Input Events
         cursors = this.input.keyboard.createCursorKeys();
         //spacebar = this.input.keyboard.addKey(Phaser.input.Keyboard.KeyCodes.SPACE);
-        this.physics.add.collider(player, wandLayer);
+        this.physics.add.collider(blob, wandLayer);
+        this.physics.add.collider(playerzwei, wandLayer);
         wandLayer.setCollisionBetween(265,352);
         wandLayer.setCollisionBetween(372, 376);
         wandLayer.setCollision(251);
         wandLayer.setCollision(279);
-        this.physics.add.collider(player, dekoLayer);
+        this.physics.add.collider(playerzwei, dekoLayer);
         dekoLayer.setCollisionBetween(297,355);
-        this.physics.add.collider(player, wasserLayer);
+        this.physics.add.collider(playerzwei, wasserLayer);
         wasserLayer.setCollisionBetween(186,211);
         wasserLayer.setCollisionBetween(214,242);
-        this.physics.add.collider(player, ausgangsLayer, naechstesLevel, null, this);
+        this.physics.add.collider(playerzwei, ausgangsLayer, naechstesLevel, null, this);
+
         ausgangsLayer.setCollisionBetween(0, 200);
+
+
     }
 
     update() {
-
         if (cursors.left.isDown)
         {
-            player.setVelocityX(-160);
-            player.anims.play('left', true);
+            playerzwei.setVelocityX(-160);
+            playerzwei.anims.play('left', true);
             if(cursors.left.isUp)
             {
-                player.setVelocityX(0);
-                player.setVelocityY(0);
-                player.anims.play('turnleft', true);
+                playerzwei.setVelocityX(0);
+                playerzwei.setVelocityY(0);
+                playerzwei.anims.play('turnleft', true);
             }
-        }
-        else if(this.input.keyboard.SPACE){
-            player.anims.play('shootright', true);
-            player.setVelocityX(160);
         }
         /*else if(cursors.left.isUp)
         {
@@ -150,9 +155,9 @@ class ZweiterDungeon extends Phaser.Scene {
         }*/
         else if (cursors.right.isDown)
         {
-            player.setVelocityX(160);
+            playerzwei.setVelocityX(160);
 
-            player.anims.play('right', true);
+            playerzwei.anims.play('right', true);
         }
         /*else if(cursors.right.isUp)
         {
@@ -162,21 +167,21 @@ class ZweiterDungeon extends Phaser.Scene {
         }*/
         else if (cursors.up.isDown)
         {
-            player.setVelocityY(-160);
+            playerzwei.setVelocityY(-160);
 
-            player.anims.play('up', true);
+            playerzwei.anims.play('up', true);
         }
         else if (cursors.down.isDown)
         {
-            player.setVelocityY(160);
+            playerzwei.setVelocityY(160);
 
-            player.anims.play('down', true);
+            playerzwei.anims.play('down', true);
         }
         else
         {
-            player.setVelocityX(0);
-            player.setVelocityY(0);
-            player.anims.play('turnright', true);
+            playerzwei.setVelocityX(0);
+            playerzwei.setVelocityY(0);
+            playerzwei.anims.play('turnright', true);
         }
 
         /*

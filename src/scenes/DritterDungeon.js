@@ -5,6 +5,9 @@ var bodenLayer;
 var baumLayer;
 var platformLayer;
 var todesLayer;
+var blumeeins;
+var blumezwei;
+var blumedrei;
 var unsichtbareGrenzeLayer;
 var canDoubleJump = true;
 var jumpCount= 0;
@@ -25,11 +28,10 @@ class DritterDungeon extends Phaser.Scene {
         this.load.image('background3', "assets/tilemaps/dritterDungeonBackground3.png");
         this.load.image("sterne", "assets/tilemaps/star.png"); //Tileset
         this.load.tilemapTiledJSON('dungeon3', 'assets/tilemaps/DritterDungeon.json');
-        this.load.spritesheet('astro3', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });
+        this.load.spritesheet('astro3', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });//Spieler Spritesheet
+        this.load.spritesheet('blume', 'assets/Blume.png', {frameWidth: 480, frameHeight: 480});
 
     }
-
-
 
     create() {
         function gestorben(){
@@ -50,13 +52,20 @@ class DritterDungeon extends Phaser.Scene {
         unsichtbareGrenzeLayer = dungeon.createStaticLayer("unsichtbareGrenze", sterne, 0, 0).setScale(2).setDepth(-1);
         baumLayer = dungeon.createStaticLayer("baum", sterne, 0, 0).setScale(2).setDepth(-1);
         bodenLayer = dungeon.createStaticLayer("boden", sterne, 0, 0).setScale(2).setDepth(-1);
-        player = this.physics.add.sprite(70,650, 'astro3').setScale(0.08);
-
+        player = this.physics.add.sprite(1500,150, 'astro3').setScale(0.08);
+        blumeeins = this.physics.add.sprite(483.5, 450, 'blume').setScale(0.11);
+        blumezwei = this.physics.add.sprite(870, 450, 'blume').setScale(0.11);
+        blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.180);
 
         this.cameras.main.startFollow(player);
         this.cameras.main.roundPixels = true;
 
-
+        this.anims.create({
+            key:'devour',
+            frames: this.anims.generateFrameNumbers('blume', {start: 0, end: 2}),
+            frameRate: 5,
+            repeat: -1
+        })
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('astro3', {start: 17, end: 23}),
@@ -109,12 +118,18 @@ class DritterDungeon extends Phaser.Scene {
 
 
         this.physics.add.collider(player, bodenLayer);
+        this.physics.add.collider(blumeeins, bodenLayer);
+        this.physics.add.collider(blumezwei, bodenLayer);
+        this.physics.add.collider(blumedrei, bodenLayer);
         bodenLayer.setCollisionBetween(0, 197);
 
         this.physics.add.collider(player, platformLayer);
         platformLayer.setCollisionBetween(0, 197);
 
-        this.physics.add.collider(player, todesLayer, gestorben, null, this);
+        this.physics.add.collider(player, todesLayer, gestorben, null, this)
+        this.physics.add.collider(player, blumeeins, gestorben, null, this);
+        this.physics.add.collider(player, blumezwei, gestorben, null, this);
+        this.physics.add.collider(player, blumedrei, gestorben, null, this);
         todesLayer.setCollisionBetween(22, 64);
 
         this.physics.add.collider(player, unsichtbareGrenzeLayer);
@@ -127,6 +142,9 @@ class DritterDungeon extends Phaser.Scene {
     }
 
     update() {
+        blumeeins.anims.play('devour', true);
+        blumezwei.anims.play('devour', true);
+        blumedrei.anims.play('devour', true);
 
         const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up);
 
