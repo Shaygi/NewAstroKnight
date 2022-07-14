@@ -57,14 +57,15 @@ class ZweiterDungeon extends Phaser.Scene {
         const dungeon = this.make.tilemap({ key: "dungeon" });
         let terrain = dungeon.addTilesetImage("DungeonTiles", "terrain");
         // layers
-        let schattenLayer = dungeon.createStaticLayer("schatten", terrain, -200, 0).setScale(5).setDepth(-1);
-        let bodenLayer = dungeon.createStaticLayer("boden", terrain, 60, 0).setDepth(-1);
-        wandLayer = dungeon.createStaticLayer("wand", terrain, 60, 0).setDepth(-1);
-        let eingangLayer = dungeon.createStaticLayer("Eingang", terrain, 60, 0).setDepth(-1);
-        ausgangsLayer = dungeon.createStaticLayer("Ausgang", terrain, 60, 0).setDepth(-1);
-        dekoLayer = dungeon.createStaticLayer("deko", terrain, 60, 0).setDepth(-1);
-        wasserLayer = dungeon.createStaticLayer("wasser", terrain, 60, 0).setDepth(-1);
+        let schattenLayer = dungeon.createLayer("schatten", terrain, -600, -200).setScale(10).setDepth(-1);
+        let bodenLayer = dungeon.createLayer("boden", terrain, 60, 0).setDepth(-1);
+        wandLayer = dungeon.createLayer("wand", terrain, 60, 0).setDepth(-1);
+        let eingangLayer = dungeon.createLayer("Eingang", terrain, 60, 0).setDepth(-1);
+        ausgangsLayer = dungeon.createLayer("Ausgang", terrain, 60, 0).setDepth(-1);
+        dekoLayer = dungeon.createLayer("deko", terrain, 60, 0).setDepth(-1);
+        wasserLayer = dungeon.createLayer("wasser", terrain, 60, 0).setDepth(-1);
         playerzwei = this.physics.add.sprite(300, 590, 'astro2').setScale(0.15);
+
         blob = this.physics.add.sprite(330, 790, 'blob').setScale(0.05);
         blobeins = this.physics.add.sprite(350, 1000, 'blob').setScale(0.05);
         blobzwei = this.physics.add.sprite(800, 690, 'blob').setScale(0.05);
@@ -72,6 +73,7 @@ class ZweiterDungeon extends Phaser.Scene {
         blobvier = this.physics.add.sprite(400, 200, 'blob').setScale(0.05);
 
         this.cameras.main.startFollow(playerzwei); //Kamera folgt dem Spieler
+        this.cameras.main.roundPixels = true; //verhindert tilebleeding
         //Animations
         this.anims.create({
             key: 'blub',
@@ -93,7 +95,7 @@ class ZweiterDungeon extends Phaser.Scene {
         });
         this.anims.create({
             key: 'tod',
-            frames: this.anims.generateFrameNumbers('astro2', { start: 44, end: 49 }),
+            frames: this.anims.generateFrameNumbers('astro2', { start: 43, end: 48 }),
             frameRate: 10,
             repeat: 1
         });
@@ -142,6 +144,12 @@ class ZweiterDungeon extends Phaser.Scene {
 
         //  Input Events
         cursors = this.input.keyboard.createCursorKeys();
+
+        this.physics.add.collider(playerzwei, blob);
+        this.physics.add.collider(playerzwei, blobeins);
+        this.physics.add.collider(playerzwei, blobzwei);
+        this.physics.add.collider(playerzwei, blobdrei);
+        this.physics.add.collider(playerzwei, blobvier);
         //spacebar = this.input.keyboard.addKey(Phaser.input.Keyboard.KeyCodes.SPACE);
         this.physics.add.collider(blob, wandLayer, blobAnWandAngekommenZwei, null, this);
         this.physics.add.collider(blobeins, wandLayer);
@@ -149,6 +157,9 @@ class ZweiterDungeon extends Phaser.Scene {
         this.physics.add.collider(blobdrei, wandLayer);
         this.physics.add.collider(blobvier, wandLayer, blobAnWandAngekommen, null, this);
         this.physics.add.collider(playerzwei, wandLayer);
+
+
+
         wandLayer.setCollisionBetween(265,352);
         wandLayer.setCollisionBetween(372, 376);
         wandLayer.setCollision(251);

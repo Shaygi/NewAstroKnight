@@ -107,17 +107,16 @@ class ErsterDungeon extends Phaser.Scene{
         let cave = dungeon2.addTilesetImage("cave", "cave");
 
         // layers
-
-        lavaLayer = dungeon2.createStaticLayer("lava", cave, -600, 0).setScale(5).setDepth(-1);
-        let bodenLayer = dungeon2.createStaticLayer("boden", cave, 60, 0).setScale(3).setDepth(-1);
-        wandLayer = dungeon2.createStaticLayer("wand", cave, 60, 0).setScale(3).setDepth(-1);
-        randerLayer = dungeon2.createStaticLayer("ränder", cave, 60, 0).setScale(3).setDepth(-1);
-        let eingang = dungeon2.createStaticLayer("Eingang", cave, 60, 0).setScale(3).setDepth(-1);
-        ausgang = dungeon2.createStaticLayer("Ausgang", cave, 60, 0).setScale(3).setDepth(-1);
-        let dekorLayer = dungeon2.createStaticLayer("dekor", cave, 60, 0).setScale(3).setDepth(-1);
+        lavaLayer = dungeon2.createLayer("lava", cave, -600, 0).setScale(5).setDepth(-1);
+        let bodenLayer = dungeon2.createLayer("boden", cave, 60, 0).setScale(3).setDepth(-1);
+        wandLayer = dungeon2.createLayer("wand", cave, 60, 0).setScale(3).setDepth(-1);
+        randerLayer = dungeon2.createLayer("ränder", cave, 60, 0).setScale(3).setDepth(-1);
+        let eingang = dungeon2.createLayer("Eingang", cave, 60, 0).setScale(3).setDepth(-1);
+        ausgang = dungeon2.createLayer("Ausgang", cave, 60, 0).setScale(3).setDepth(-1);
+        let dekorLayer = dungeon2.createLayer("dekor", cave, 60, 0).setScale(3).setDepth(-1);
         //player = this.physics.add.sprite(610, 170, 'astro').setScale(0.15);
         player = this.physics.add.sprite(1910, 170, 'astro').setScale(0.15);
-        //fertig
+        //add enemies
         ogon = this.physics.add.sprite(600, 300, 'ogoni').setScale( 0.12);
         ogoneins = this.physics.add.sprite(700, 370, 'ogoni').setScale(0.12);
         ogonzwei = this.physics.add.sprite(400, 500, 'ogoni').setScale(0.12);
@@ -125,21 +124,20 @@ class ErsterDungeon extends Phaser.Scene{
         ogonvier = this.physics.add.sprite(600, 800, 'ogoni').setScale(0.12);
         ogonfuenf = this.physics.add.sprite(400, 800, 'ogoni').setScale(0.12);
         ogonsechs = this.physics.add.sprite(800, 800, 'ogoni').setScale(0.12);
-        //noch nicht fertig
         ogonsieben = this.physics.add.sprite(1000, 750, 'ogoni').setScale(0.12);
         ogonacht = this.physics.add.sprite(1000, 950, 'ogoni').setScale(0.12);
-        ogonneun = this.physics.add.sprite(1500, 700, 'ogoni').setScale(0.12);//diagonal machen
-        ogonzehn = this.physics.add.sprite(1500, 300, 'ogoni').setScale(0.12);//nicht anfassen
+        ogonneun = this.physics.add.sprite(1500, 700, 'ogoni').setScale(0.12);//läuft diagonal
+        ogonzehn = this.physics.add.sprite(1500, 300, 'ogoni').setScale(0.12);
         ogonelf = this.physics.add.sprite(1900, 450, 'ogoni').setScale(0.12);
         ogonzwoelf = this.physics.add.sprite(1900, 750, 'ogoni').setScale(0.12);
-        ogondreizehn = this.physics.add.sprite(1750, 1000, 'ogoni').setScale(0.12);//na
-        ogonvierzehn = this.physics.add.sprite(1600, 450, 'ogoni').setScale(0.12);//na
+        ogondreizehn = this.physics.add.sprite(1750, 1000, 'ogoni').setScale(0.12);
+        ogonvierzehn = this.physics.add.sprite(1600, 450, 'ogoni').setScale(0.12);
         ogonfuenfzehn = this.physics.add.sprite(2000, 300, 'ogoni').setScale(0.12);
 
-
-
         player.body.setSize(30, 80);
+
         this.cameras.main.startFollow(player); //Kamera folgt Spieler
+        this.cameras.main.roundPixels = true;
 
         cursors = this.input.keyboard.createCursorKeys();
 
