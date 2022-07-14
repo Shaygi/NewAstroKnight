@@ -5,8 +5,18 @@ var dekoLayer;
 var wasserLayer;
 var ausgangsLayer;
 var blob;
+var blobeins;
+var blobzwei;
+var blobdrei;
+var blobvier;
 var speed;
 var rechtsoderlinks = 0;
+var blobtouched = 0;
+var blobTouchedTimes = 0;
+var blobtouchedZwei = 0;
+var blobTouchedTimesZwei = 0;
+var blobAnWand = 0;
+var blobAnWandZwei = 0;
 class ZweiterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -25,10 +35,18 @@ class ZweiterDungeon extends Phaser.Scene {
         this.load.image("terrain", "assets/tilemaps/tiles.png"); //Tileset
         this.load.tilemapTiledJSON('dungeon', 'assets/tilemaps/Dungeon.json');
         this.load.spritesheet('astro2', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });
-        this.load.spritesheet('blob', 'assets/blob.png', {frameWidth: 480 , frameHeight: 480});
+        this.load.spritesheet('blob', 'assets/blob.png', {frameWidth: 960 , frameHeight: 960});
     }
 
     create() {
+        function blobAnWandAngekommen(){
+            blobAnWand = 1; //Wenn das erste mal eine Wand berührt wird
+            blobtouched ++; //Wie oft die Wand berührt wurde
+        }
+        function blobAnWandAngekommenZwei(){
+            blobAnWandZwei = 1; //Wenn das erste mal eine Wand berührt wird
+            blobtouchedZwei ++; //Wie oft die Wand berührt wurde
+        }
         function naechstesLevel(){
             this.scene.start('DritterDungeon');
         }
@@ -47,15 +65,23 @@ class ZweiterDungeon extends Phaser.Scene {
         dekoLayer = dungeon.createStaticLayer("deko", terrain, 60, 0).setDepth(-1);
         wasserLayer = dungeon.createStaticLayer("wasser", terrain, 60, 0).setDepth(-1);
         playerzwei = this.physics.add.sprite(300, 590, 'astro2').setScale(0.15);
-        blob = this.physics.add.sprite(300, 690, 'blob').setScale(0.09);
-        //playerzwei.setBounce(0.2);
+        blob = this.physics.add.sprite(330, 790, 'blob').setScale(0.05);
+        blobeins = this.physics.add.sprite(350, 1000, 'blob').setScale(0.05);
+        blobzwei = this.physics.add.sprite(800, 690, 'blob').setScale(0.05);
+        blobdrei = this.physics.add.sprite(1200, 690, 'blob').setScale(0.05);
+        blobvier = this.physics.add.sprite(400, 200, 'blob').setScale(0.05);
 
-        this.cameras.main.startFollow(playerzwei);
-
-
+        this.cameras.main.startFollow(playerzwei); //Kamera folgt dem Spieler
+        //Animations
         this.anims.create({
             key: 'blub',
             frames: this.anims.generateFrameNumbers('blob', { start: 0, end: 5 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'blubup',
+            frames: this.anims.generateFrameNumbers('blob', { start: 6, end: 11 }),
             frameRate: 10,
             repeat: -1
         });
@@ -117,7 +143,11 @@ class ZweiterDungeon extends Phaser.Scene {
         //  Input Events
         cursors = this.input.keyboard.createCursorKeys();
         //spacebar = this.input.keyboard.addKey(Phaser.input.Keyboard.KeyCodes.SPACE);
-        this.physics.add.collider(blob, wandLayer);
+        this.physics.add.collider(blob, wandLayer, blobAnWandAngekommenZwei, null, this);
+        this.physics.add.collider(blobeins, wandLayer);
+        this.physics.add.collider(blobzwei, wandLayer);
+        this.physics.add.collider(blobdrei, wandLayer);
+        this.physics.add.collider(blobvier, wandLayer, blobAnWandAngekommen, null, this);
         this.physics.add.collider(playerzwei, wandLayer);
         wandLayer.setCollisionBetween(265,352);
         wandLayer.setCollisionBetween(372, 376);
@@ -132,10 +162,37 @@ class ZweiterDungeon extends Phaser.Scene {
 
         ausgangsLayer.setCollisionBetween(0, 200);
 
-
     }
 
     update() {
+
+        blobTouchedTimes = blobtouched % 2;
+        blobTouchedTimesZwei = blobtouchedZwei % 2;
+        blob.anims.play('blub', true);
+        blobeins.anims.play('blub', true);
+        blobzwei.anims.play('blub', true);
+        blobdrei.anims.play('blub', true);
+
+
+        if(blobAnWand == 0 && blobtouched == 0 ){
+            blobvier.setVelocityY(160);
+            blobvier.anims.play('blub', true);
+        }else if (blobAnWand == 1 && blobTouchedTimes > 0){
+            blobvier.setVelocityY(-160);
+            blobvier.anims.play('blubup', true);
+        }else if(blobAnWand == 1 && blobTouchedTimes == 0){
+            blobvier.setVelocityY(160);
+            blobvier.anims.play('blub', true);
+        }
+
+        if(blobAnWandZwei == 0 && blobtouchedZwei == 0 ){
+            blob.setVelocityX(160);
+        }else if (blobAnWandZwei == 1 && blobTouchedTimesZwei > 0){
+            blob.setVelocityX(-160);
+        }else if(blobAnWandZwei == 1 && blobTouchedTimesZwei == 0){
+            blob.setVelocityX(160);
+        }
+
         if (cursors.left.isDown)
         {
             playerzwei.setVelocityX(-160);
@@ -147,24 +204,12 @@ class ZweiterDungeon extends Phaser.Scene {
                 playerzwei.anims.play('turnleft', true);
             }
         }
-        /*else if(cursors.left.isUp)
-        {
-            player.setVelocityX(0);
-            player.setVelocityY(0);
-            player.anims.play('turnleft', true);
-        }*/
         else if (cursors.right.isDown)
         {
             playerzwei.setVelocityX(160);
 
             playerzwei.anims.play('right', true);
         }
-        /*else if(cursors.right.isUp)
-        {
-            player.setVelocityX(0);
-            player.setVelocityY(0);
-            player.anims.play('turnright', true);
-        }*/
         else if (cursors.up.isDown)
         {
             playerzwei.setVelocityY(-160);

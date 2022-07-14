@@ -22,9 +22,17 @@ var touched = 0;
 var touchedzwei = 0;
 var toucheddrei = 0;
 var touchedvier = 0;
+var touchedfuenf = 0;
+var touchedsechs = 0;
+var touchedsieben = 0;
+var touchedacht = 0;
 var toucheddreiTimes = 0;
 var touchedzweiTimes = 0;
 var touchedvierTimes = 0;
+var touchedfuenfTimes = 0;
+var touchedsechsTimes = 0;
+var touchedsiebenTimes = 0;
+var touchedachtTimes = 0;
 var touchedTimes = 0;
 class ErsterDungeon extends Phaser.Scene{
 
@@ -94,7 +102,8 @@ class ErsterDungeon extends Phaser.Scene{
         let eingang = dungeon2.createStaticLayer("Eingang", cave, 60, 0).setScale(3).setDepth(-1);
         ausgang = dungeon2.createStaticLayer("Ausgang", cave, 60, 0).setScale(3).setDepth(-1);
         let dekorLayer = dungeon2.createStaticLayer("dekor", cave, 60, 0).setScale(3).setDepth(-1);
-        player = this.physics.add.sprite(610, 170, 'astro').setScale(0.15);
+        //player = this.physics.add.sprite(610, 170, 'astro').setScale(0.15);
+        player = this.physics.add.sprite(1910, 170, 'astro').setScale(0.15);
         //fertig
         ogon = this.physics.add.sprite(600, 300, 'ogoni').setScale( 0.12);
         ogoneins = this.physics.add.sprite(700, 370, 'ogoni').setScale(0.12);
@@ -110,7 +119,7 @@ class ErsterDungeon extends Phaser.Scene{
         ogonzehn = this.physics.add.sprite(1500, 300, 'ogoni').setScale(0.12);
 
 
-
+        player.body.setSize(30, 80);
         this.cameras.main.startFollow(player); //Kamera folgt Spieler
 
         cursors = this.input.keyboard.createCursorKeys();
@@ -194,8 +203,24 @@ class ErsterDungeon extends Phaser.Scene{
             anWandzwei = 1;
             touchedvier++;
         }
+        function anWandAngekommenFuenf(){
+            anWandzwei = 1;
+            touchedfuenf++;
+        }
+        function anWandAngekommenSechs(){
+            touchedsechs++;
+        }
+        function anWandAngekommenSieben(){
+            touchedsieben++;
+        }
+        function anWandAngekommenAcht(){
+            touchedacht++;
+        }
         function abprallen(){
             toucheddrei++;
+        }
+        function abprallenzwei(){
+            touchedfuenf++;
         }
 
 
@@ -218,12 +243,12 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(ogonfuenf, randerLayer);
         this.physics.add.collider(ogonsechs, wandLayer, anWandAngekommenVier, null, this);
         this.physics.add.collider(ogonsechs, randerLayer, anWandAngekommenVier, null, this);
-        this.physics.add.collider(ogonsieben, wandLayer);
-        this.physics.add.collider(ogonsieben, randerLayer);
-        this.physics.add.collider(ogonacht, wandLayer);
-        this.physics.add.collider(ogonacht, randerLayer);
-        this.physics.add.collider(ogonneun, wandLayer);
-        this.physics.add.collider(ogonneun, randerLayer);
+        this.physics.add.collider(ogonsieben, wandLayer, anWandAngekommenFuenf, null, this);
+        this.physics.add.collider(ogonsieben, randerLayer, anWandAngekommenFuenf, null, this);
+        this.physics.add.collider(ogonacht, wandLayer, anWandAngekommenFuenf, null, this);
+        this.physics.add.collider(ogonacht, randerLayer, anWandAngekommenFuenf, null, this);
+        this.physics.add.collider(ogonneun, wandLayer, anWandAngekommenAcht, null, this);
+        this.physics.add.collider(ogonneun, randerLayer, anWandAngekommenAcht, null, this);
         this.physics.add.collider(ogonzehn, wandLayer);
         this.physics.add.collider(ogonzehn, randerLayer);
 
@@ -241,6 +266,7 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(player, ogonzehn, gestorben, null, this);
         //enemy enemy Collision
         this.physics.add.collider(ogonzwei, ogondrei, abprallen, null, this);
+        this.physics.add.collider(ogonsieben, ogonacht, abprallenzwei, null, this);
         //Kollisionsreichweite Tileset
         wandLayer.setCollisionBetween(12, 293);
         randerLayer.setCollisionBetween(176,293);
@@ -254,6 +280,11 @@ class ErsterDungeon extends Phaser.Scene{
         touchedzweiTimes = touchedzwei % 2;
         toucheddreiTimes = toucheddrei % 2;
         touchedvierTimes = touchedvier % 2;
+        touchedfuenfTimes = touchedfuenf % 2;
+        touchedsechsTimes = touchedsechs % 2;
+        touchedsiebenTimes = touchedsieben % 2;
+        touchedachtTimes = touchedacht % 2;
+
 
         if(anWand == 0 && touched == 0 ){
               ogon.setVelocityX(160);
