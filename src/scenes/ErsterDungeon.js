@@ -11,6 +11,11 @@ var ogonsieben;
 var ogonacht;
 var ogonneun;
 var ogonzehn;
+var ogonelf;
+var ogonzwoelf;
+var ogondreizehn;
+var ogonvierzehn;
+var ogonfuenfzehn;
 var lavaLayer;
 var wandLayer;
 var randerLayer;
@@ -34,6 +39,7 @@ var touchedsechsTimes = 0;
 var touchedsiebenTimes = 0;
 var touchedachtTimes = 0;
 var touchedTimes = 0;
+
 class ErsterDungeon extends Phaser.Scene{
 
     constructor() {
@@ -83,6 +89,13 @@ class ErsterDungeon extends Phaser.Scene{
             ogonneun.setVelocityY(0);
             ogonzehn.setVelocityX(0);
             ogonzehn.setVelocityY(0);
+            ogonelf.setVelocityX(0);
+            ogonelf.setVelocityY(0);
+            ogonzwoelf.setVelocityX(0);
+            ogonzwoelf.setVelocityY(0);
+            ogondreizehn.setVelocityX(0);
+            ogondreizehn.setVelocityY(0);
+
         }
 
         function naechstesLevel(){
@@ -115,8 +128,14 @@ class ErsterDungeon extends Phaser.Scene{
         //noch nicht fertig
         ogonsieben = this.physics.add.sprite(1000, 750, 'ogoni').setScale(0.12);
         ogonacht = this.physics.add.sprite(1000, 950, 'ogoni').setScale(0.12);
-        ogonneun = this.physics.add.sprite(1500, 800, 'ogoni').setScale(0.12);
-        ogonzehn = this.physics.add.sprite(1500, 300, 'ogoni').setScale(0.12);
+        ogonneun = this.physics.add.sprite(1500, 700, 'ogoni').setScale(0.12);//diagonal machen
+        ogonzehn = this.physics.add.sprite(1500, 300, 'ogoni').setScale(0.12);//nicht anfassen
+        ogonelf = this.physics.add.sprite(1900, 450, 'ogoni').setScale(0.12);
+        ogonzwoelf = this.physics.add.sprite(1900, 750, 'ogoni').setScale(0.12);
+        ogondreizehn = this.physics.add.sprite(1750, 1000, 'ogoni').setScale(0.12);//na
+        ogonvierzehn = this.physics.add.sprite(1600, 450, 'ogoni').setScale(0.12);//na
+        ogonfuenfzehn = this.physics.add.sprite(2000, 300, 'ogoni').setScale(0.12);
+
 
 
         player.body.setSize(30, 80);
@@ -251,6 +270,13 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(ogonneun, randerLayer, anWandAngekommenAcht, null, this);
         this.physics.add.collider(ogonzehn, wandLayer);
         this.physics.add.collider(ogonzehn, randerLayer);
+        this.physics.add.collider(ogonelf, wandLayer);
+        this.physics.add.collider(ogonelf, randerLayer);
+        this.physics.add.collider(ogonzwoelf, wandLayer,anWandAngekommenSechs, null, this);
+        this.physics.add.collider(ogonzwoelf, randerLayer,anWandAngekommenSechs, null, this);
+        this.physics.add.collider(ogondreizehn, wandLayer,anWandAngekommenSieben, null, this);
+        this.physics.add.collider(ogondreizehn, randerLayer,anWandAngekommenSieben, null, this);
+
 
         //player enemy Collision
         this.physics.add.collider(player, ogon, gestorben, null, this);
@@ -264,6 +290,11 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(player, ogonacht, gestorben, null, this);
         this.physics.add.collider(player, ogonneun, gestorben, null, this);
         this.physics.add.collider(player, ogonzehn, gestorben, null, this);
+        this.physics.add.collider(player, ogonelf, gestorben, null, this);
+        this.physics.add.collider(player, ogonzwoelf, gestorben, null, this);
+        this.physics.add.collider(player, ogondreizehn, gestorben, null, this);
+        this.physics.add.collider(player, ogonvierzehn, gestorben, null, this);
+        this.physics.add.collider(player, ogonfuenfzehn, gestorben, null, this);
         //enemy enemy Collision
         this.physics.add.collider(ogonzwei, ogondrei, abprallen, null, this);
         this.physics.add.collider(ogonsieben, ogonacht, abprallenzwei, null, this);
@@ -323,7 +354,46 @@ class ErsterDungeon extends Phaser.Scene{
         }
 
 
+        if(anWandzwei == 0 && touchedfuenf == 0 ){
+            ogonsieben.setVelocityY(-160);
+            ogonacht.setVelocityY(160);
+        }else if (anWandzwei == 1 && touchedfuenfTimes > 0){
+            ogonsieben.setVelocityY(160);
+            ogonacht.setVelocityY(-160);
+        }else if(anWandzwei == 1 && touchedfuenfTimes == 0){
+            ogonsieben.setVelocityY(-160);
+            ogonacht.setVelocityY(160);
+        }
 
+
+        if(anWandzwei == 0 && touchedsechs == 0 ){
+            ogonzwoelf.setVelocityX(160);
+        }else if (anWandzwei == 1 && touchedsechsTimes > 0){
+            ogonzwoelf.setVelocityX(-160);
+        }else if(anWandzwei == 1 && touchedsechsTimes == 0){
+            ogonzwoelf.setVelocityX(160);
+        }
+
+
+
+        if(anWandzwei == 0 && touchedsieben == 0 ){
+            ogondreizehn.setVelocityY(160);
+        }else if (anWandzwei == 1 && touchedsiebenTimes > 0){
+            ogondreizehn.setVelocityY(-160);
+        }else if(anWandzwei == 1 && touchedsiebenTimes == 0){
+            ogondreizehn.setVelocityY(160);
+        }
+
+        if(anWandzwei == 0 && touchedacht == 0 ){
+            ogonneun.setVelocityX(-260);
+            ogonneun.setVelocityY(-260);
+        }else if (anWandzwei == 1 && touchedachtTimes > 0){
+            ogonneun.setVelocityX(260);
+            ogonneun.setVelocityY(260);
+        }else if(anWandzwei == 1 && touchedachtTimes == 0){
+            ogonneun.setVelocityX(-260);
+            ogonneun.setVelocityY(-260);
+        }
 
         if (cursors.left.isDown)
         {
