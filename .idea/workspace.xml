@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="Ogonis und Blobs">
-      <change afterPath="$PROJECT_DIR$/src/assets/Jump.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/Walk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tilemaps/dritterDungeonStart.png" afterDir="false" />
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="anweisung tilebleeding in dungeon zwei">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/tilemaps/DritterDungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/tilemaps/DritterDungeon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/tilemaps/Dungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/tilemaps/Dungeon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/tilemaps/ZweiterDungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/tilemaps/ZweiterDungeon.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +36,7 @@
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\tilemaps" />
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets" />
     </key>
   </component>
@@ -63,7 +56,9 @@
       <workItem from="1657717597805" duration="1167000" />
       <workItem from="1657726620992" duration="9802000" />
       <workItem from="1657791261646" duration="6015000" />
-      <workItem from="1657808918565" duration="8235000" />
+      <workItem from="1657808918565" duration="8275000" />
+      <workItem from="1657897183910" duration="175000" />
+      <workItem from="1657916194360" duration="520000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -121,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657797333890</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="anweisung tilebleeding in dungeon zwei">
+      <created>1657818402840</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657818402840</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +146,7 @@
     <MESSAGE value="Ogonis" />
     <MESSAGE value="Ogonis und Blobs" />
     <MESSAGE value="Changes by dinara" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by dinara" />
+    <MESSAGE value="anweisung tilebleeding in dungeon zwei" />
+    <option name="LAST_COMMIT_MESSAGE" value="anweisung tilebleeding in dungeon zwei" />
   </component>
 </project>

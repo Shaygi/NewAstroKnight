@@ -20,6 +20,7 @@ var lavaLayer;
 var wandLayer;
 var randerLayer;
 var ausgang;
+var grenzLayer;
 var position = 0;
 var anWand = 0;
 var anWandzwei = 0;
@@ -114,6 +115,7 @@ class ErsterDungeon extends Phaser.Scene{
         let eingang = dungeon2.createLayer("Eingang", cave, 60, 0).setScale(3).setDepth(-1);
         ausgang = dungeon2.createLayer("Ausgang", cave, 60, 0).setScale(3).setDepth(-1);
         let dekorLayer = dungeon2.createLayer("dekor", cave, 60, 0).setScale(3).setDepth(-1);
+        grenzLayer = dungeon2.createLayer("grenze",cave, 60,0).setScale(3).setDepth(-1);
         //player = this.physics.add.sprite(610, 170, 'astro').setScale(0.15);
         player = this.physics.add.sprite(1910, 170, 'astro').setScale(0.15);
         //add enemies
@@ -244,6 +246,7 @@ class ErsterDungeon extends Phaser.Scene{
         //player Collisions
         this.physics.add.collider(player, wandLayer);
         this.physics.add.collider(player, randerLayer);
+        this.physics.add.collider(player, grenzLayer);
         this.physics.add.collider(player, ausgang, naechstesLevel, null, this);
         //enemy Collisions
         this.physics.add.collider(ogon, wandLayer, anWandAngekommen, null, this);
