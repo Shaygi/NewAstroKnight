@@ -59,7 +59,7 @@ class ErsterDungeon extends Phaser.Scene{
         this.load.image("cave", "assets/tilemaps/cave.png"); //Tileset laden
         this.load.tilemapTiledJSON('dungeon2', 'assets/tilemaps/ZweiterDungeon.json'); //Tilemap laden
         this.load.spritesheet('astro', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 }); //Astroknight Spritesheet laden
-        this.load.spritesheet('ogoni', 'assets/Ogoni.png', {frameWidth: 490,frameHeight: 490 }); //Ogoni Spritesheet laden
+        this.load.spritesheet('ogoni', 'assets/Ogoni.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
     }
 
     create(){
@@ -111,7 +111,7 @@ class ErsterDungeon extends Phaser.Scene{
         lavaLayer = dungeon2.createLayer("lava", cave, -600, 0).setScale(5).setDepth(-1);
         let bodenLayer = dungeon2.createLayer("boden", cave, 60, 0).setScale(3).setDepth(-1);
         wandLayer = dungeon2.createLayer("wand", cave, 60, 0).setScale(3).setDepth(-1);
-        randerLayer = dungeon2.createLayer("ränder", cave, 60, 0).setScale(3).setDepth(-1);
+        randerLayer = dungeon2.createLayer("raender", cave, 60, 0).setScale(3).setDepth(-1);
         let eingang = dungeon2.createLayer("Eingang", cave, 60, 0).setScale(3).setDepth(-1);
         ausgang = dungeon2.createLayer("Ausgang", cave, 60, 0).setScale(3).setDepth(-1);
         let dekorLayer = dungeon2.createLayer("dekor", cave, 60, 0).setScale(3).setDepth(-1);
@@ -146,9 +146,9 @@ class ErsterDungeon extends Phaser.Scene{
         //Animationen
         this.anims.create({
             key: 'walk',
-            frames: this.anims.generateFrameNumbers('ogoni', {start:0 , end: 0}),
+            frames: this.anims.generateFrameNumbers('ogoni', {start:0 , end: 4}),
             frameRate: 16,
-            repeat: 1
+            repeat: -1
         });
 
         this.anims.create({
@@ -242,7 +242,6 @@ class ErsterDungeon extends Phaser.Scene{
             touchedfuenf++;
         }
 
-
         //player Collisions
         this.physics.add.collider(player, wandLayer);
         this.physics.add.collider(player, randerLayer);
@@ -278,7 +277,6 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(ogondreizehn, wandLayer,anWandAngekommenSieben, null, this);
         this.physics.add.collider(ogondreizehn, randerLayer,anWandAngekommenSieben, null, this);
 
-
         //player enemy Collision
         this.physics.add.collider(player, ogon, gestorben, null, this);
         this.physics.add.collider(player, ogoneins, gestorben, null, this);
@@ -296,6 +294,7 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(player, ogondreizehn, gestorben, null, this);
         this.physics.add.collider(player, ogonvierzehn, gestorben, null, this);
         this.physics.add.collider(player, ogonfuenfzehn, gestorben, null, this);
+
         //enemy enemy Collision
         this.physics.add.collider(ogonzwei, ogondrei, abprallen, null, this);
         this.physics.add.collider(ogonsieben, ogonacht, abprallenzwei, null, this);
@@ -308,6 +307,23 @@ class ErsterDungeon extends Phaser.Scene{
     }
 
     update(){
+        ogon.anims.play('walk', true);
+        ogoneins.anims.play('walk', true);
+        ogonzwei.anims.play('walk', true);
+        ogondrei.anims.play('walk', true);
+        ogonvier.anims.play('walk', true);
+        ogonfuenf.anims.play('walk', true);
+        ogonsechs.anims.play('walk', true);
+        ogonsieben.anims.play('walk', true);
+        ogonacht.anims.play('walk', true);
+        ogonneun.anims.play('walk', true);
+        ogonzehn.anims.play('walk', true);
+        ogonelf.anims.play('walk', true);
+        ogonzwoelf.anims.play('walk', true);
+        ogondreizehn.anims.play('walk', true);
+        ogonvierzehn.anims.play('walk', true);
+        ogonfuenfzehn.anims.play('walk', true);
+
         touchedTimes = touched % 2;
         touchedzweiTimes = touchedzwei % 2;
         toucheddreiTimes = toucheddrei % 2;
@@ -320,10 +336,13 @@ class ErsterDungeon extends Phaser.Scene{
 
         if(anWand == 0 && touched == 0 ){
               ogon.setVelocityX(160);
+
         }else if (anWand == 1 && touchedTimes > 0){
                 ogon.setVelocityX(-160);
+
         }else if(anWand == 1 && touchedTimes == 0){
             ogon.setVelocityX(160);
+
         }
 
 
