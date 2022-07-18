@@ -1,5 +1,8 @@
 var cursors;
 var player; //Spieler
+var energy;
+var energytwo;
+var energythree;
 var ogon;// Monster
 var ogoneins;
 var ogonzwei;
@@ -40,6 +43,7 @@ var touchedsechsTimes = 0;
 var touchedsiebenTimes = 0;
 var touchedachtTimes = 0;
 var touchedTimes = 0;
+var gesammelt = 0;
 
 class ErsterDungeon extends Phaser.Scene{
 
@@ -60,9 +64,23 @@ class ErsterDungeon extends Phaser.Scene{
         this.load.tilemapTiledJSON('dungeon2', 'assets/tilemaps/ZweiterDungeon.json'); //Tilemap laden
         this.load.spritesheet('astro', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 }); //Astroknight Spritesheet laden
         this.load.spritesheet('ogoni', 'assets/Ogoni.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
+        this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
+
     }
 
     create(){
+        function sammeln(){
+            energy.destroy();
+            gesammelt++;
+        }
+        function sammelnzwei(){
+            energytwo.destroy();
+            gesammelt++;
+        }
+        function sammelndrei(){
+            energythree.destroy();
+            gesammelt++;
+        }
 
         function gestorben(){
             //Spieler auf die Ausgangsposition zurücksetzen
@@ -96,13 +114,15 @@ class ErsterDungeon extends Phaser.Scene{
             ogonzwoelf.setVelocityY(0);
             ogondreizehn.setVelocityX(0);
             ogondreizehn.setVelocityY(0);
-
         }
 
         function naechstesLevel(){
-            this.scene.start('ZweiterDungeon'); //Starts next Scene
+            if(gesammelt == 3) {
+                this.scene.start('ZweiterDungeon'); //Starts next Scene
+            }
         }
 
+        this.add.text(100, 100, "Sammle alle Bruchteile deines Raumschiffes!");
         //Map key
         const dungeon2 = this.make.tilemap({ key: "dungeon2" });
         let cave = dungeon2.addTilesetImage("cave", "cave");
@@ -119,6 +139,10 @@ class ErsterDungeon extends Phaser.Scene{
         //player = this.physics.add.sprite(610, 170, 'astro').setScale(0.15);
         player = this.physics.add.sprite(1910, 170, 'astro').setScale(0.15);
         //add enemies
+        energy = this.physics.add.sprite(400, 400, 'energy').setScale( 0.1);
+        energytwo = this.physics.add.sprite(1000, 900, 'energy').setScale( 0.1);
+        energythree = this.physics.add.sprite(2100, 920, 'energy').setScale( 0.1);
+
         ogon = this.physics.add.sprite(600, 300, 'ogoni').setScale( 0.12);
         ogoneins = this.physics.add.sprite(700, 370, 'ogoni').setScale(0.12);
         ogonzwei = this.physics.add.sprite(400, 500, 'ogoni').setScale(0.12);
@@ -144,6 +168,13 @@ class ErsterDungeon extends Phaser.Scene{
         cursors = this.input.keyboard.createCursorKeys();
 
         //Animationen
+        this.anims.create({
+            key: 'shine',
+            frames: this.anims.generateFrameNumbers('energy', {start:0 , end: 2}),
+            frameRate: 6,
+            repeat: -1
+        });
+
         this.anims.create({
             key: 'walk',
             frames: this.anims.generateFrameNumbers('ogoni', {start:0 , end: 4}),
@@ -277,7 +308,11 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(ogondreizehn, wandLayer,anWandAngekommenSieben, null, this);
         this.physics.add.collider(ogondreizehn, randerLayer,anWandAngekommenSieben, null, this);
 
-        //player enemy Collision
+        //player energy collsion
+        this.physics.add.collider(player, energy, sammeln, null, this);
+        this.physics.add.collider(player, energytwo, sammelnzwei, null, this);
+        this.physics.add.collider(player, energythree, sammelndrei, null, this);
+        //player enemy collision
         this.physics.add.collider(player, ogon, gestorben, null, this);
         this.physics.add.collider(player, ogoneins, gestorben, null, this);
         this.physics.add.collider(player, ogonzwei, gestorben, null, this);
@@ -307,6 +342,7 @@ class ErsterDungeon extends Phaser.Scene{
     }
 
     update(){
+
         ogon.anims.play('walk', true);
         ogoneins.anims.play('walk', true);
         ogonzwei.anims.play('walk', true);

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="grenzLayer in dugein eins">
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="Ogoni animation">
+      <change afterPath="$PROJECT_DIR$/src/assets/energy.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/Ogoni.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/Ogoni.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +61,10 @@
       <workItem from="1657916194360" duration="718000" />
       <workItem from="1657956817696" duration="164000" />
       <workItem from="1657991824338" duration="1509000" />
+      <workItem from="1657993382119" duration="70000" />
+      <workItem from="1658045706602" duration="9000" />
+      <workItem from="1658134619812" duration="119000" />
+      <workItem from="1658134996003" duration="2136000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -134,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657916747746</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ogoni animation">
+      <created>1657993402421</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657993402421</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +168,7 @@
     <MESSAGE value="Changes by dinara" />
     <MESSAGE value="anweisung tilebleeding in dungeon zwei" />
     <MESSAGE value="grenzLayer in dugein eins" />
-    <option name="LAST_COMMIT_MESSAGE" value="grenzLayer in dugein eins" />
+    <MESSAGE value="Ogoni animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ogoni animation" />
   </component>
 </project>
