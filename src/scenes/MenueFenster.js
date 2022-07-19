@@ -1,7 +1,7 @@
 
 var optionsknopf;
 var menue;
-var  playknopf;
+var playknopf;
 var playListener
 var optionistener;
 class MenueFenster extends Phaser.Scene {
@@ -36,22 +36,14 @@ class MenueFenster extends Phaser.Scene {
         });
         menue = this.physics.add.sprite(740, 355, 'menue').setScale(0.57).setDepth(-1);
         menue.play('ablauf', true);
-        playknopf = this.add.image(740, 360, 'play').setScale(0.56);
-        optionsknopf = this.add.sprite(740, 420, 'options').setScale(0.4).setInteractive();
+        playknopf = this.add.image(740, 500, 'play').setScale(0.56);
+        optionsknopf = this.add.image(740, 620, 'options').setScale(0.4);
 
         playknopf.setInteractive();
+        optionsknopf.setInteractive();
+
         playknopf.on('pointerdown', () => this.scene.start('ErsterDungeon'));
-        optionsknopf.on('pointerdown', () => this.scene.start('ErsterDungeon'));
-
-
-    /*playknopf.on('pointerover', function (pointer){
-        playknopf.setScale(1.2);
-
-    })
-    playknopf.on('pointerout', function (pointer){
-        playknopf.setScale(-1.2);
-        //playknopf.setInteractive({ useHandCursor: true });
-    })*/
+        //optionsknopf.on('pointerdown', () => this.scene.start('ErsterDungeon'));
 
 }
 
@@ -59,8 +51,8 @@ class MenueFenster extends Phaser.Scene {
         this.playknopf.cursors = this.input.keyboard.createCursor();
     }
     update(){
-
-
+        playknopf.on('pointerover', () => playknopf.setScale(0.58));
+        playknopf.on('pointerout', () => playknopf.setScale(0.56));
     }
 
 }

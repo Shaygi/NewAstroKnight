@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="" />
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="Ogoni animation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,19 +17,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2BklzEJmHY7W26s5RRK8FB4eedO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/shiri/IdeaProjects/Astroknight&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\tilemaps" />
+      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,8 +51,115 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657458225668</updated>
+      <workItem from="1657458227000" duration="984000" />
+      <workItem from="1657525444867" duration="66000" />
+      <workItem from="1657525938897" duration="52000" />
+      <workItem from="1657531025180" duration="1500000" />
+      <workItem from="1657555746897" duration="7221000" />
+      <workItem from="1657717597805" duration="1167000" />
+      <workItem from="1657726620992" duration="9802000" />
+      <workItem from="1657791261646" duration="6015000" />
+      <workItem from="1657808918565" duration="8275000" />
+      <workItem from="1657897183910" duration="175000" />
+      <workItem from="1657916194360" duration="718000" />
+      <workItem from="1657956817696" duration="164000" />
+      <workItem from="1657991824338" duration="1509000" />
+      <workItem from="1657993382119" duration="70000" />
+      <workItem from="1658045706602" duration="9000" />
+      <workItem from="1658134619812" duration="119000" />
+      <workItem from="1658134996003" duration="2228000" />
+      <workItem from="1658139988762" duration="12000" />
+      <workItem from="1658237661484" duration="2586000" />
     </task>
+    <task id="LOCAL-00001" summary="zehnter ogoni">
+      <created>1657458493244</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657458493244</updated>
+    </task>
+    <task id="LOCAL-00002" summary="zehnter ogoni">
+      <created>1657525490730</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657525490730</updated>
+    </task>
+    <task id="LOCAL-00003" summary="zehnter ogoni">
+      <created>1657563001389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657563001389</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Menue button">
+      <created>1657718766664</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657718766664</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Ogonis">
+      <created>1657736491706</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657736491706</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changes by dinara">
+      <created>1657736501068</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657736501068</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Ogonis und Blobs">
+      <created>1657797316114</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657797316115</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changes by dinara">
+      <created>1657797333890</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657797333890</updated>
+    </task>
+    <task id="LOCAL-00009" summary="anweisung tilebleeding in dungeon zwei">
+      <created>1657818402840</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657818402840</updated>
+    </task>
+    <task id="LOCAL-00010" summary="grenzLayer in dugein eins">
+      <created>1657916747746</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657916747746</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Ogoni animation">
+      <created>1657993402421</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657993402421</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ogoni animation">
+      <created>1658137621929</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1658137621929</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -44,5 +171,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="zehnter ogoni" />
+    <MESSAGE value="Menue button" />
+    <MESSAGE value="Ogonis" />
+    <MESSAGE value="Ogonis und Blobs" />
+    <MESSAGE value="Changes by dinara" />
+    <MESSAGE value="anweisung tilebleeding in dungeon zwei" />
+    <MESSAGE value="grenzLayer in dugein eins" />
+    <MESSAGE value="Ogoni animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ogoni animation" />
   </component>
 </project>
