@@ -33,14 +33,18 @@ class DritterDungeon extends Phaser.Scene {
         this.load.tilemapTiledJSON('dungeon3', 'assets/tilemaps/DritterDungeon.json');
         this.load.spritesheet('astro3', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });//Spieler Spritesheet
         this.load.spritesheet('blume', 'assets/Blume.png', {frameWidth: 480, frameHeight: 480});
-
     }
 
     create() {
         function gestorben(){
+            blumeeins.setVelocityX(0);
+            blumeeins.setVelocityY(0);
+            blumezwei.setVelocityX(0);
+            blumezwei.setVelocityY(0);
+            blumedrei.setVelocityX(0);
+            blumedrei.setVelocityY(0);
             player.setPosition(200, 400);
         }
-
         this.add.image(2500, 300, 'background').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background2').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background3').setScale(25).setDepth(-2);
@@ -123,7 +127,6 @@ class DritterDungeon extends Phaser.Scene {
         //  Input Events
         cursors = this.input.keyboard.createCursorKeys();
 
-
         this.physics.add.collider(player, bodenLayer);
         this.physics.add.collider(blumeeins, bodenLayer);
         this.physics.add.collider(blumezwei, bodenLayer);
@@ -145,10 +148,10 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(player, baumLayer);
         baumLayer.setCollisionBetween(11, 161);
 
-
     }
 
     update() {
+
         blumeeins.anims.play('devour', true);
         blumezwei.anims.play('devour', true);
         blumedrei.anims.play('devour', true);

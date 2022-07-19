@@ -3,6 +3,7 @@ var player; //Spieler
 var energy;
 var energytwo;
 var energythree;
+var energyfour;
 var ogon;// Monster
 var ogoneins;
 var ogonzwei;
@@ -81,6 +82,10 @@ class ErsterDungeon extends Phaser.Scene{
             energythree.destroy();
             gesammelt++;
         }
+        function sammelnfour(){
+            energyfour.destroy();
+            gesammelt++;
+        }
 
         function gestorben(){
             //Spieler auf die Ausgangsposition zurücksetzen
@@ -117,7 +122,7 @@ class ErsterDungeon extends Phaser.Scene{
         }
 
         function naechstesLevel(){
-            if(gesammelt == 3) {
+            if(gesammelt == 4) {
                 this.scene.start('ZweiterDungeon'); //Starts next Scene
             }
         }
@@ -137,11 +142,12 @@ class ErsterDungeon extends Phaser.Scene{
         let dekorLayer = dungeon2.createLayer("dekor", cave, 60, 0).setScale(3).setDepth(-1);
         grenzLayer = dungeon2.createLayer("grenze",cave, 60,0).setScale(3).setDepth(-1);
         //player = this.physics.add.sprite(610, 170, 'astro').setScale(0.15);
-        player = this.physics.add.sprite(1910, 170, 'astro').setScale(0.15);
+        player = this.physics.add.sprite(600, 170, 'astro').setScale(0.15);
         //add enemies
-        energy = this.physics.add.sprite(400, 400, 'energy').setScale( 0.1);
+        energy = this.physics.add.sprite(500, 800, 'energy').setScale( 0.1);
         energytwo = this.physics.add.sprite(1000, 900, 'energy').setScale( 0.1);
         energythree = this.physics.add.sprite(2100, 920, 'energy').setScale( 0.1);
+        energyfour = this.physics.add.sprite(1750, 400, 'energy').setScale( 0.1);
 
         ogon = this.physics.add.sprite(600, 300, 'ogoni').setScale( 0.12);
         ogoneins = this.physics.add.sprite(700, 370, 'ogoni').setScale(0.12);
@@ -312,6 +318,8 @@ class ErsterDungeon extends Phaser.Scene{
         this.physics.add.collider(player, energy, sammeln, null, this);
         this.physics.add.collider(player, energytwo, sammelnzwei, null, this);
         this.physics.add.collider(player, energythree, sammelndrei, null, this);
+        this.physics.add.collider(player, energyfour, sammelnfour, null, this);
+
         //player enemy collision
         this.physics.add.collider(player, ogon, gestorben, null, this);
         this.physics.add.collider(player, ogoneins, gestorben, null, this);

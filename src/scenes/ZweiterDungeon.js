@@ -17,6 +17,12 @@ var blobtouchedZwei = 0;
 var blobTouchedTimesZwei = 0;
 var blobAnWand = 0;
 var blobAnWandZwei = 0;
+var energyfuenf;
+var energysechs;
+var energysieben;
+var energyacht;
+var energyneun;
+var gesammeltzwei = 0;
 class ZweiterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -36,9 +42,31 @@ class ZweiterDungeon extends Phaser.Scene {
         this.load.tilemapTiledJSON('dungeon', 'assets/tilemaps/Dungeon.json');
         this.load.spritesheet('astro2', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });
         this.load.spritesheet('blob', 'assets/blob.png', {frameWidth: 960 , frameHeight: 960});
+        this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
     }
 
     create() {
+        function sammelnfuenf(){
+            energyfuenf.destroy();
+            gesammeltzwei++;
+        }
+        function sammelnsechs(){
+            energysechs.destroy();
+            gesammeltzwei++;
+        }
+        function sammelnsieben(){
+            energysieben.destroy();
+            gesammeltzwei++;
+        }
+        function sammelnacht(){
+            energyacht.destroy();
+            gesammeltzwei++;
+        }
+        function sammelnneun(){
+            energyneun.destroy();
+            gesammeltzwei++;
+        }
+
         function blobAnWandAngekommen(){
             blobAnWand = 1; //Wenn das erste mal eine Wand berührt wird
             blobtouched ++; //Wie oft die Wand berührt wurde
@@ -48,11 +76,23 @@ class ZweiterDungeon extends Phaser.Scene {
             blobtouchedZwei ++; //Wie oft die Wand berührt wurde
         }
         function naechstesLevel(){
-            this.scene.start('DritterDungeon');
+            if(gesammeltzwei == 5){
+                this.scene.start('DritterDungeon');
+            }
         }
         function gestorben(){
             //player.anims.play('tod', true);
-            player.setPosition(600, 200);
+            blob.setVelocityX(0);
+            blob.setVelocityY(0);
+            blobeins.setVelocityX(0);
+            blobeins.setVelocityY(0);
+            blobzwei.setVelocityX(0);
+            blobzwei.setVelocityY(0);
+            blobdrei.setVelocityX(0);
+            blobdrei.setVelocityY(0);
+            blobvier.setVelocityX(0);
+            blobvier.setVelocityY(0);
+            playerzwei.setPosition(300, 590);
         }
         const dungeon = this.make.tilemap({ key: "dungeon" });
         let terrain = dungeon.addTilesetImage("DungeonTiles", "terrain");
@@ -145,11 +185,11 @@ class ZweiterDungeon extends Phaser.Scene {
         //  Input Events
         cursors = this.input.keyboard.createCursorKeys();
 
-        this.physics.add.collider(playerzwei, blob);
-        this.physics.add.collider(playerzwei, blobeins);
-        this.physics.add.collider(playerzwei, blobzwei);
-        this.physics.add.collider(playerzwei, blobdrei);
-        this.physics.add.collider(playerzwei, blobvier);
+        this.physics.add.collider(playerzwei, blob, gestorben, null, this);
+        this.physics.add.collider(playerzwei, blobeins, gestorben, null, this);
+        this.physics.add.collider(playerzwei, blobzwei, gestorben, null, this);
+        this.physics.add.collider(playerzwei, blobdrei, gestorben, null, this);
+        this.physics.add.collider(playerzwei, blobvier, gestorben, null, this);
         //spacebar = this.input.keyboard.addKey(Phaser.input.Keyboard.KeyCodes.SPACE);
         this.physics.add.collider(blob, wandLayer, blobAnWandAngekommenZwei, null, this);
         this.physics.add.collider(blobeins, wandLayer);
@@ -158,7 +198,18 @@ class ZweiterDungeon extends Phaser.Scene {
         this.physics.add.collider(blobvier, wandLayer, blobAnWandAngekommen, null, this);
         this.physics.add.collider(playerzwei, wandLayer);
 
+        energyfuenf = this.physics.add.sprite(350, 1050, 'energy').setScale( 0.1);
+        energysechs = this.physics.add.sprite(1000, 900, 'energy').setScale( 0.1);
+        energysieben = this.physics.add.sprite(2300, 1000, 'energy').setScale( 0.1);
+        energyacht = this.physics.add.sprite(1450, 400, 'energy').setScale( 0.1);
+        energyneun = this.physics.add.sprite(300, 250, 'energy').setScale( 0.1);
 
+        //player energy collsion
+        this.physics.add.collider(playerzwei, energyfuenf, sammelnfuenf, null, this);
+        this.physics.add.collider(playerzwei, energysechs, sammelnsechs, null, this);
+        this.physics.add.collider(playerzwei, energysieben, sammelnsieben, null, this);
+        this.physics.add.collider(playerzwei, energyacht, sammelnacht, null, this);
+        this.physics.add.collider(playerzwei, energyneun, sammelnneun, null, this);
 
         wandLayer.setCollisionBetween(265,352);
         wandLayer.setCollisionBetween(372, 376);
