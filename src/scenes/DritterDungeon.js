@@ -8,6 +8,14 @@ var todesLayer;
 var blumeeins;
 var blumezwei;
 var blumedrei;
+var energyzehn;
+var energyelf;
+var energyzwoelf;
+var energydreizehn;
+var energyvierzehn;
+var energyfuenfzehn;
+var energysechzehn;
+var energysiebzehn;
 var unsichtbareGrenzeLayer;
 var canDoubleJump = true;
 var jumpCount= 0;
@@ -22,7 +30,6 @@ class DritterDungeon extends Phaser.Scene {
     }
 
     preload() {
-
         this.load.image('background', "assets/tilemaps/dritterDungeonBackground1.png");
         this.load.image('background2', "assets/tilemaps/dritterDungeonBackground2.png");
         this.load.image('background3', "assets/tilemaps/dritterDungeonBackground3.png");
@@ -33,9 +40,42 @@ class DritterDungeon extends Phaser.Scene {
         this.load.tilemapTiledJSON('dungeon3', 'assets/tilemaps/DritterDungeon.json');
         this.load.spritesheet('astro3', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });//Spieler Spritesheet
         this.load.spritesheet('blume', 'assets/Blume.png', {frameWidth: 480, frameHeight: 480});
+        this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512});
     }
 
     create() {
+        function sammelnzehn(){
+            energyzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnelf(){
+            energyelf.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnzwoelf(){
+            energyzwoelf.destroy();
+            gesammeltdrei++;
+        }
+        function sammelndreizehn(){
+            energydreizehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnvierzehn(){
+            energyvierzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnfuenfzehn(){
+            energyfuenfzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnsechzehn(){
+            energysechzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnsiebzehn(){
+            energysiebzehn.destroy();
+            gesammeltdrei++;
+        }
         function gestorben(){
             blumeeins.setVelocityX(0);
             blumeeins.setVelocityY(0);
@@ -63,7 +103,7 @@ class DritterDungeon extends Phaser.Scene {
         unsichtbareGrenzeLayer = dungeon.createLayer("unsichtbareGrenze", sterne, 0, 0).setScale(2).setDepth(-1);
         baumLayer = dungeon.createLayer("baum", sterne, 0, 0).setScale(2).setDepth(-1);
         bodenLayer = dungeon.createLayer("boden", sterne, 0, 0).setScale(2).setDepth(-1);
-        player = this.physics.add.sprite(1500,150, 'astro3').setScale(0.08);
+        player = this.physics.add.sprite(50,650, 'astro3').setScale(0.08);
         blumeeins = this.physics.add.sprite(483.5, 450, 'blume').setScale(0.11);
         blumezwei = this.physics.add.sprite(870, 450, 'blume').setScale(0.11);
         blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.180);
@@ -127,6 +167,9 @@ class DritterDungeon extends Phaser.Scene {
         //  Input Events
         cursors = this.input.keyboard.createCursorKeys();
 
+
+
+
         this.physics.add.collider(player, bodenLayer);
         this.physics.add.collider(blumeeins, bodenLayer);
         this.physics.add.collider(blumezwei, bodenLayer);
@@ -148,6 +191,31 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(player, baumLayer);
         baumLayer.setCollisionBetween(11, 161);
 
+        this.physics.add.collider(player, energyzehn, sammelnzehn, null, this);
+        this.physics.add.collider(player, energyelf, sammelnelf, null, this);
+        this.physics.add.collider(player, energyzwoelf, sammelnzwoelf, null, this);
+        this.physics.add.collider(player, energydreizehn, sammelndreizehn, null, this);
+        this.physics.add.collider(player, energyvierzehn, sammelnvierzehn, null, this);
+        this.physics.add.collider(player, energyfuenfzehn, sammelnfuenfzehn, null, this);
+        this.physics.add.collider(player, energysechzehn, sammelnsechzehn, null, this);
+        this.physics.add.collider(player, energysiebzehn, sammelnsiebzehn, null, this);
+
+        this.physics.add.collider(energyzehn, bodenLayer);
+        this.physics.add.collider(energyelf, bodenLayer);
+        this.physics.add.collider(energyzwoelf, bodenLayer);
+        this.physics.add.collider(energydreizehn, bodenLayer);
+        this.physics.add.collider(energyvierzehn, bodenLayer);
+        this.physics.add.collider(energyfuenfzehn, bodenLayer);
+        this.physics.add.collider(energysechzehn, bodenLayer);
+        this.physics.add.collider(energysiebzehn, bodenLayer);
+        this.physics.add.collider(energyzehn, platformLayer);
+        this.physics.add.collider(energyelf, platformLayer);
+        this.physics.add.collider(energyzwoelf, platformLayer);
+        this.physics.add.collider(energydreizehn, platformLayer);
+        this.physics.add.collider(energyvierzehn, platformLayer);
+        this.physics.add.collider(energyfuenfzehn, platformLayer);
+        this.physics.add.collider(energysechzehn, platformLayer);
+        this.physics.add.collider(energysiebzehn, platformLayer);
     }
 
     update() {

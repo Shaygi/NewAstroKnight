@@ -3,13 +3,13 @@ var config = {
     width: 1485,
     height: 700,
     scene: [DritterDungeon],
-physics: {
-    default: 'arcade',
-    arcade: {
-        gravity: {y: 1000},
-        debug: false
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: {y: 1000},
+            debug: false
+        }
     }
-}
 };
 
 var game = new Phaser.Game(config);
