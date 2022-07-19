@@ -19,6 +19,7 @@ var energysiebzehn;
 var unsichtbareGrenzeLayer;
 var canDoubleJump = true;
 var jumpCount= 0;
+var gesammeltdrei = 0;
 class DritterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -107,6 +108,15 @@ class DritterDungeon extends Phaser.Scene {
         blumeeins = this.physics.add.sprite(483.5, 450, 'blume').setScale(0.11);
         blumezwei = this.physics.add.sprite(870, 450, 'blume').setScale(0.11);
         blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.180);
+
+        energyzehn = this.physics.add.sprite(670, 150, 'energy').setScale( 0.05);//
+        energyelf = this.physics.add.sprite(3445, 150, 'energy').setScale( 0.05);
+        energyzwoelf = this.physics.add.sprite(1070, 150, 'energy').setScale( 0.05);//
+        energydreizehn = this.physics.add.sprite(1440, 250, 'energy').setScale( 0.05);//
+        energyvierzehn = this.physics.add.sprite(2165, 150, 'energy').setScale( 0.05);//
+        energyfuenfzehn = this.physics.add.sprite(420, 150, 'energy').setScale( 0.05);//
+        energysechzehn= this.physics.add.sprite(750, 150, 'energy').setScale( 0.05);//
+        energysiebzehn= this.physics.add.sprite(1750, 650, 'energy').setScale( 0.05);//
 
         this.cameras.main.startFollow(player);
         this.cameras.main.roundPixels = true;
