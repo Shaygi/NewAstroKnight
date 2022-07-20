@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="fast fertig wuhuhuuuu">
-      <change afterPath="$PROJECT_DIR$/src/assets/Raumschiff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/YouLost.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/YouWon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/boss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/LostScene.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/WinScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
-    </list>
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="fertig" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +72,7 @@
       <workItem from="1658237661484" duration="2613000" />
       <workItem from="1658261108065" duration="3543000" />
       <workItem from="1658298237013" duration="22000" />
-      <workItem from="1658335419497" duration="8606000" />
+      <workItem from="1658335419497" duration="8634000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -191,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658264944701</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fertig">
+      <created>1658349502895</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1658349502895</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +214,7 @@
     <MESSAGE value="energy und collsion" />
     <MESSAGE value="fast fertig wuhuhuuuu" />
     <MESSAGE value="Changes by dinara" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by dinara" />
+    <MESSAGE value="fertig" />
+    <option name="LAST_COMMIT_MESSAGE" value="fertig" />
   </component>
 </project>
