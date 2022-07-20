@@ -20,6 +20,8 @@ var unsichtbareGrenzeLayer;
 var canDoubleJump = true;
 var jumpCount= 0;
 var gesammeltdrei = 0;
+var boss;
+var raumschiff;
 class DritterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -42,9 +44,20 @@ class DritterDungeon extends Phaser.Scene {
         this.load.spritesheet('astro3', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });//Spieler Spritesheet
         this.load.spritesheet('blume', 'assets/Blume.png', {frameWidth: 480, frameHeight: 480});
         this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512});
+        this.load.spritesheet('boss', 'assets/boss.png', {frameWidth: 960,frameHeight: 800});
+        this.load.image('raumschiff', "assets/Raumschiff.png");
     }
 
     create() {
+        function gewonnen(){
+            boss.setVelocityX(0);
+            boss.setVelocityY(0);
+            if (gesammeltdrei === 8){
+                this.scene.start('WinScene');
+            }else{
+                this.scene.start('LostScene');
+            }
+        }
         function sammelnzehn(){
             energyzehn.destroy();
             gesammeltdrei++;
@@ -104,23 +117,36 @@ class DritterDungeon extends Phaser.Scene {
         unsichtbareGrenzeLayer = dungeon.createLayer("unsichtbareGrenze", sterne, 0, 0).setScale(2).setDepth(-1);
         baumLayer = dungeon.createLayer("baum", sterne, 0, 0).setScale(2).setDepth(-1);
         bodenLayer = dungeon.createLayer("boden", sterne, 0, 0).setScale(2).setDepth(-1);
-        player = this.physics.add.sprite(50,650, 'astro3').setScale(0.08);
+
         blumeeins = this.physics.add.sprite(483.5, 450, 'blume').setScale(0.11);
         blumezwei = this.physics.add.sprite(870, 450, 'blume').setScale(0.11);
         blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.180);
 
-        energyzehn = this.physics.add.sprite(670, 150, 'energy').setScale( 0.05);//
+        energyzehn = this.physics.add.sprite(670, 150, 'energy').setScale( 0.05);
         energyelf = this.physics.add.sprite(3445, 150, 'energy').setScale( 0.05);
-        energyzwoelf = this.physics.add.sprite(1070, 150, 'energy').setScale( 0.05);//
-        energydreizehn = this.physics.add.sprite(1440, 250, 'energy').setScale( 0.05);//
-        energyvierzehn = this.physics.add.sprite(2165, 150, 'energy').setScale( 0.05);//
-        energyfuenfzehn = this.physics.add.sprite(420, 150, 'energy').setScale( 0.05);//
-        energysechzehn= this.physics.add.sprite(750, 150, 'energy').setScale( 0.05);//
-        energysiebzehn= this.physics.add.sprite(1750, 650, 'energy').setScale( 0.05);//
+        energyzwoelf = this.physics.add.sprite(1070, 150, 'energy').setScale( 0.05);
+        energydreizehn = this.physics.add.sprite(1440, 250, 'energy').setScale( 0.05);
+        energyvierzehn = this.physics.add.sprite(2165, 150, 'energy').setScale( 0.05);
+        energyfuenfzehn = this.physics.add.sprite(420, 150, 'energy').setScale( 0.05);
+        energysechzehn= this.physics.add.sprite(750, 150, 'energy').setScale( 0.05);
+        energysiebzehn= this.physics.add.sprite(1750, 650, 'energy').setScale( 0.05);
 
+        boss = this.physics.add.sprite(4100,250, 'boss').setScale(0.48);
+        boss.body.setSize(400,440);
+
+        raumschiff = this.physics.add.sprite(3750, 250, 'raumschiff').setScale( 0.27);
+        raumschiff.body.setSize(-10,440);
+        player = this.physics.add.sprite(3300,170, 'astro3').setScale(0.08);//50
+        this.add.text(3200, 300, "Da ist dein Rauschiff!! Hast du alle Energy Bruchstücke gesammelt?\n               Wenn nicht, könnte es wieder abstürzen.\n                      Pass gut auf dich auf!");
         this.cameras.main.startFollow(player);
         this.cameras.main.roundPixels = true;
 
+        this.anims.create({
+            key:'bossAngriff',
+            frames: this.anims.generateFrameNumbers('boss', {start: 0, end: 7}),
+            frameRate: 5,
+            repeat: -1
+        })
         this.anims.create({
             key:'devour',
             frames: this.anims.generateFrameNumbers('blume', {start: 0, end: 2}),
@@ -210,6 +236,12 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(player, energysechzehn, sammelnsechzehn, null, this);
         this.physics.add.collider(player, energysiebzehn, sammelnsiebzehn, null, this);
 
+        this.physics.add.collider(boss, bodenLayer);
+
+        this.physics.add.collider(raumschiff, bodenLayer);
+        this.physics.add.collider(player, raumschiff, gewonnen, null, this);
+
+
         this.physics.add.collider(energyzehn, bodenLayer);
         this.physics.add.collider(energyelf, bodenLayer);
         this.physics.add.collider(energyzwoelf, bodenLayer);
@@ -234,6 +266,7 @@ class DritterDungeon extends Phaser.Scene {
         blumezwei.anims.play('devour', true);
         blumedrei.anims.play('devour', true);
 
+        boss.anims.play('bossAngriff', true);
         const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up);
 
         if (cursors.left.isDown)
@@ -246,16 +279,6 @@ class DritterDungeon extends Phaser.Scene {
                 player.anims.play('turnleft', true);
             }
         }
-       /* else if(this.input.keyboard.SPACE){
-            player.anims.play('shootright', true);
-            player.setVelocityX(160);
-        }*/
-        /*else if(cursors.left.isUp)
-        {
-            player.setVelocityX(0);
-            player.setVelocityY(0);
-            player.anims.play('turnleft', true);
-        }*/
         else if (cursors.right.isDown)
         {
             player.setVelocityX(160);
@@ -267,9 +290,6 @@ class DritterDungeon extends Phaser.Scene {
             player.setVelocityY(-350);
             player.anims.play('up3', true);
             ++jumpCount;
-
-
-
         }else
         {
             player.setVelocityX(0);
@@ -282,25 +302,5 @@ class DritterDungeon extends Phaser.Scene {
 
     }
 
-
-
-    /*
-    if(cursors.left.isDown){
-        player.setVelocityX(-160);
-    }else if (cursors.right.isDown){
-        player.setVelocityX(160);
-    }
-    if (cursors.up.isDown){
-        player.setVelocityY(-160);
-    }else if (cursors.down.isDown){
-        player.setVelocityY(160);
-    }
-
-    player.setVelocity(player.velocityX, player.velocityY);
-    if(Math.abs(player.velocityX) > 0.1 || Math.abs(player.velocityY) > 0.1){
-        player.anims.play('right', true);
-    }else{
-        player.anims.play('turnright', true);
-    }*/
 
 }

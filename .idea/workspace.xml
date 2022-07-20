@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="energy und collsion">
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="fast fertig wuhuhuuuu">
+      <change afterPath="$PROJECT_DIR$/src/assets/Raumschiff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/YouLost.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/YouWon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/boss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenes/LostScene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenes/WinScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/energy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/energy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
-    </list>
-    <list id="2c8390c4-50b2-48ee-b63f-9a3c14760385" name="Changes by dinara" comment="">
-      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/scenes/DritterDungeon.js">
-      <ranges>
-        <range start1="10" end1="10" start2="10" end2="18" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="13" end1="13" start2="21" end2="22" changelist="2c8390c4-50b2-48ee-b63f-9a3c14760385" />
-        <range start1="24" end1="25" start2="33" end2="33" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="35" end1="35" start2="43" end2="44" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="38" end1="38" start2="47" end2="79" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="65" end1="66" start2="106" end2="107" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="70" end1="70" start2="111" end2="120" changelist="2c8390c4-50b2-48ee-b63f-9a3c14760385" />
-        <range start1="128" end1="128" start2="178" end2="181" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="150" end1="150" start2="203" end2="228" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -86,7 +82,9 @@
       <workItem from="1658134996003" duration="2228000" />
       <workItem from="1658139988762" duration="12000" />
       <workItem from="1658237661484" duration="2613000" />
-      <workItem from="1658261108065" duration="3504000" />
+      <workItem from="1658261108065" duration="3543000" />
+      <workItem from="1658298237013" duration="22000" />
+      <workItem from="1658335419497" duration="8606000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -179,7 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658240293557</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fast fertig wuhuhuuuu">
+      <created>1658264933730</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658264933730</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Changes by dinara">
+      <created>1658264944701</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1658264944701</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,11 +213,12 @@
     <MESSAGE value="Menue button" />
     <MESSAGE value="Ogonis" />
     <MESSAGE value="Ogonis und Blobs" />
-    <MESSAGE value="Changes by dinara" />
     <MESSAGE value="anweisung tilebleeding in dungeon zwei" />
     <MESSAGE value="grenzLayer in dugein eins" />
     <MESSAGE value="Ogoni animation" />
     <MESSAGE value="energy und collsion" />
-    <option name="LAST_COMMIT_MESSAGE" value="energy und collsion" />
+    <MESSAGE value="fast fertig wuhuhuuuu" />
+    <MESSAGE value="Changes by dinara" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by dinara" />
   </component>
 </project>

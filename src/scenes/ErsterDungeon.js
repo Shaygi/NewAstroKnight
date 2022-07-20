@@ -122,7 +122,7 @@ class ErsterDungeon extends Phaser.Scene{
         }
 
         function naechstesLevel(){
-            if(gesammelt == 4) {
+            if(gesammelt === 4) {
                 this.scene.start('ZweiterDungeon'); //Starts next Scene
             }
         }
