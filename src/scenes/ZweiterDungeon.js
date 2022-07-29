@@ -48,22 +48,27 @@ class ZweiterDungeon extends Phaser.Scene {
     create() {
         function sammelnfuenf(){
             energyfuenf.destroy();
+            ding.play();
             gesammeltzwei++;
         }
         function sammelnsechs(){
             energysechs.destroy();
+            ding.play();
             gesammeltzwei++;
         }
         function sammelnsieben(){
             energysieben.destroy();
+            ding.play();
             gesammeltzwei++;
         }
         function sammelnacht(){
             energyacht.destroy();
+            ding.play();
             gesammeltzwei++;
         }
         function sammelnneun(){
             energyneun.destroy();
+            ding.play();
             gesammeltzwei++;
         }
 
@@ -80,7 +85,7 @@ class ZweiterDungeon extends Phaser.Scene {
                 this.scene.start('DritterDungeon');
             }
         }
-        function gestorben(){
+        /*function gestorben(){
             //player.anims.play('tod', true);
             blob.setVelocityX(0);
             blob.setVelocityY(0);
@@ -93,6 +98,9 @@ class ZweiterDungeon extends Phaser.Scene {
             blobvier.setVelocityX(0);
             blobvier.setVelocityY(0);
             playerzwei.setPosition(300, 590);
+        }*/
+        function gestorben(){
+            this.scene.start('ZweiterDungeon');
         }
         const dungeon = this.make.tilemap({ key: "dungeon" });
         let terrain = dungeon.addTilesetImage("DungeonTiles", "terrain");

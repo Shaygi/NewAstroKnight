@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="fertig" />
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="fertig">
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/burned.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/coincollect.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/lava.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/nextlvl.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/LadeFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LadeFenster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,16 +37,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shiri/IdeaProjects/Astroknight&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/shiri/IdeaProjects/NewAstroKnight/src/assets/sound"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\sound" />
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -72,7 +84,9 @@
       <workItem from="1658237661484" duration="2613000" />
       <workItem from="1658261108065" duration="3543000" />
       <workItem from="1658298237013" duration="22000" />
-      <workItem from="1658335419497" duration="8634000" />
+      <workItem from="1658335419497" duration="9093000" />
+      <workItem from="1658390380745" duration="925000" />
+      <workItem from="1659093124947" duration="6013000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -186,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658349502895</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fertig">
+      <created>1658349972671</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1658349972671</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

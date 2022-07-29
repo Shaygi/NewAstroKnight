@@ -90,7 +90,7 @@ class DritterDungeon extends Phaser.Scene {
             energysiebzehn.destroy();
             gesammeltdrei++;
         }
-        function gestorben(){
+        /*function gestorben(){
             blumeeins.setVelocityX(0);
             blumeeins.setVelocityY(0);
             blumezwei.setVelocityX(0);
@@ -98,6 +98,9 @@ class DritterDungeon extends Phaser.Scene {
             blumedrei.setVelocityX(0);
             blumedrei.setVelocityY(0);
             player.setPosition(200, 400);
+        }*/
+        function gestorben(){
+            this.scene.start('DritterDungeon');
         }
         this.add.image(2500, 300, 'background').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background2').setScale(25).setDepth(-2);
@@ -136,8 +139,8 @@ class DritterDungeon extends Phaser.Scene {
 
         raumschiff = this.physics.add.sprite(3750, 250, 'raumschiff').setScale( 0.27);
         raumschiff.body.setSize(-10,440);
-        player = this.physics.add.sprite(3300,170, 'astro3').setScale(0.08);//50
-        this.add.text(3200, 300, "Da ist dein Rauschiff!! Hast du alle Energy Bruchstücke gesammelt?\n               Wenn nicht, könnte es wieder abstürzen.\n                      Pass gut auf dich auf!");
+        player = this.physics.add.sprite(50,470, 'astro3').setScale(0.08);//50
+        this.add.text(3200, 300, "Da ist dein Rauschiff!! Hast du alle Energiekerne gesammelt?\n               Wenn nicht, könnte es wieder abstürzen.\n                      Pass gut auf dich auf!");
         this.cameras.main.startFollow(player);
         this.cameras.main.roundPixels = true;
 
