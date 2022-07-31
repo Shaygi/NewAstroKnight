@@ -22,6 +22,8 @@ var jumpCount= 0;
 var gesammeltdrei = 0;
 var boss;
 var raumschiff;
+var jump;
+var eatenAlive;
 class DritterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -46,9 +48,14 @@ class DritterDungeon extends Phaser.Scene {
         this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512});
         this.load.spritesheet('boss', 'assets/boss.png', {frameWidth: 960,frameHeight: 800});
         this.load.image('raumschiff', "assets/Raumschiff.png");
+        this.load.audio('jump', "assets/sound/jump.wav");
+        this.load.audio('eaten', "assets/sound/eaten.wav");
     }
 
     create() {
+        jump = this.sound.add("jump",{loop:false});
+        eatenAlive = this.sound.add("eaten",{loop:false});
+
         function gewonnen(){
             boss.setVelocityX(0);
             boss.setVelocityY(0);
@@ -59,47 +66,48 @@ class DritterDungeon extends Phaser.Scene {
             }
         }
         function sammelnzehn(){
+            ding.play();
             energyzehn.destroy();
             gesammeltdrei++;
         }
         function sammelnelf(){
+            ding.play();
             energyelf.destroy();
             gesammeltdrei++;
         }
         function sammelnzwoelf(){
+            ding.play();
             energyzwoelf.destroy();
             gesammeltdrei++;
         }
         function sammelndreizehn(){
+            ding.play();
             energydreizehn.destroy();
             gesammeltdrei++;
         }
         function sammelnvierzehn(){
+            ding.play();
             energyvierzehn.destroy();
             gesammeltdrei++;
         }
         function sammelnfuenfzehn(){
+            ding.play();
             energyfuenfzehn.destroy();
             gesammeltdrei++;
         }
         function sammelnsechzehn(){
+            ding.play();
             energysechzehn.destroy();
             gesammeltdrei++;
         }
         function sammelnsiebzehn(){
+            ding.play();
             energysiebzehn.destroy();
             gesammeltdrei++;
         }
-        /*function gestorben(){
-            blumeeins.setVelocityX(0);
-            blumeeins.setVelocityY(0);
-            blumezwei.setVelocityX(0);
-            blumezwei.setVelocityY(0);
-            blumedrei.setVelocityX(0);
-            blumedrei.setVelocityY(0);
-            player.setPosition(200, 400);
-        }*/
         function gestorben(){
+            gesammeltdrei = 0;
+            eatenAlive.play();
             this.scene.start('DritterDungeon');
         }
         this.add.image(2500, 300, 'background').setScale(25).setDepth(-2);
@@ -289,7 +297,7 @@ class DritterDungeon extends Phaser.Scene {
         }
 
         else if(isJumpJustDown && (player.body.onFloor() || jumpCount < 2)){
-
+            jump.play();
             player.setVelocityY(-350);
             player.anims.play('up3', true);
             ++jumpCount;

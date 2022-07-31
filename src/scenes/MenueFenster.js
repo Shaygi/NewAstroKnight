@@ -31,7 +31,7 @@ class MenueFenster extends Phaser.Scene {
         this.anims.create({
             key: 'ablauf',
             frames: this.anims.generateFrameNumbers('menue', {start: 0, end: 3}),
-            frameRate: 10,
+            frameRate: 7,
             repeat: -1
         });
         menue = this.physics.add.sprite(740, 355, 'menue').setScale(0.57).setDepth(-1);

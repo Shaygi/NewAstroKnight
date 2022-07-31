@@ -23,6 +23,9 @@ var energysieben;
 var energyacht;
 var energyneun;
 var gesammeltzwei = 0;
+var walking = false;
+var steptwo;
+var blobsplash;
 class ZweiterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -43,9 +46,13 @@ class ZweiterDungeon extends Phaser.Scene {
         this.load.spritesheet('astro2', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });
         this.load.spritesheet('blob', 'assets/blob.png', {frameWidth: 960 , frameHeight: 960});
         this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
+        this.load.audio('steptwo', "assets/sound/steptwo.ogg");
+        this.load.audio('splash', "assets/sound/splash.wav");
     }
 
     create() {
+        steptwo = this.sound.add("steptwo",{loop:true, volume: 1});
+        blobsplash = this.sound.add("splash",{loop:true, volume: 0.2});
         function sammelnfuenf(){
             energyfuenf.destroy();
             ding.play();
@@ -81,25 +88,16 @@ class ZweiterDungeon extends Phaser.Scene {
             blobtouchedZwei ++; //Wie oft die Wand berührt wurde
         }
         function naechstesLevel(){
-            if(gesammeltzwei == 5){
+            if(gesammeltzwei === 5){
+                steptwo.stop();
+                blobsplash.stop();
                 this.scene.start('DritterDungeon');
             }
         }
-        /*function gestorben(){
-            //player.anims.play('tod', true);
-            blob.setVelocityX(0);
-            blob.setVelocityY(0);
-            blobeins.setVelocityX(0);
-            blobeins.setVelocityY(0);
-            blobzwei.setVelocityX(0);
-            blobzwei.setVelocityY(0);
-            blobdrei.setVelocityX(0);
-            blobdrei.setVelocityY(0);
-            blobvier.setVelocityX(0);
-            blobvier.setVelocityY(0);
-            playerzwei.setPosition(300, 590);
-        }*/
         function gestorben(){
+            gesammeltzwei = 0;
+            steptwo.stop();
+            blobsplash.stop();
             this.scene.start('ZweiterDungeon');
         }
         const dungeon = this.make.tilemap({ key: "dungeon" });
@@ -232,6 +230,8 @@ class ZweiterDungeon extends Phaser.Scene {
 
         ausgangsLayer.setCollisionBetween(0, 200);
 
+        steptwo.play();
+        blobsplash.play();
     }
 
     update() {
@@ -244,79 +244,61 @@ class ZweiterDungeon extends Phaser.Scene {
         blobdrei.anims.play('blub', true);
 
 
-        if(blobAnWand == 0 && blobtouched == 0 ){
+        if(blobAnWand === 0 && blobtouched === 0 ){
             blobvier.setVelocityY(160);
             blobvier.anims.play('blub', true);
-        }else if (blobAnWand == 1 && blobTouchedTimes > 0){
+        }else if (blobAnWand === 1 && blobTouchedTimes > 0){
             blobvier.setVelocityY(-160);
             blobvier.anims.play('blubup', true);
-        }else if(blobAnWand == 1 && blobTouchedTimes == 0){
+        }else if(blobAnWand === 1 && blobTouchedTimes === 0){
             blobvier.setVelocityY(160);
             blobvier.anims.play('blub', true);
         }
 
-        if(blobAnWandZwei == 0 && blobtouchedZwei == 0 ){
+        if(blobAnWandZwei === 0 && blobtouchedZwei === 0 ){
             blob.setVelocityX(160);
-        }else if (blobAnWandZwei == 1 && blobTouchedTimesZwei > 0){
+        }else if (blobAnWandZwei === 1 && blobTouchedTimesZwei > 0){
             blob.setVelocityX(-160);
-        }else if(blobAnWandZwei == 1 && blobTouchedTimesZwei == 0){
+        }else if(blobAnWandZwei === 1 && blobTouchedTimesZwei === 0){
             blob.setVelocityX(160);
         }
 
         if (cursors.left.isDown)
         {
+            walking = true;
             playerzwei.setVelocityX(-160);
             playerzwei.anims.play('left', true);
-            if(cursors.left.isUp)
-            {
-                playerzwei.setVelocityX(0);
-                playerzwei.setVelocityY(0);
-                playerzwei.anims.play('turnleft', true);
-            }
+
         }
         else if (cursors.right.isDown)
         {
+            walking = true;
             playerzwei.setVelocityX(160);
-
             playerzwei.anims.play('right', true);
         }
         else if (cursors.up.isDown)
         {
+            walking = true;
             playerzwei.setVelocityY(-160);
-
             playerzwei.anims.play('up', true);
         }
         else if (cursors.down.isDown)
         {
+            walking = true;
             playerzwei.setVelocityY(160);
-
             playerzwei.anims.play('down', true);
         }
         else
         {
+            walking = false;
             playerzwei.setVelocityX(0);
             playerzwei.setVelocityY(0);
             playerzwei.anims.play('turnright', true);
         }
-
-        /*
-        if(cursors.left.isDown){
-            player.setVelocityX(-160);
-        }else if (cursors.right.isDown){
-            player.setVelocityX(160);
-        }
-        if (cursors.up.isDown){
-            player.setVelocityY(-160);
-        }else if (cursors.down.isDown){
-            player.setVelocityY(160);
-        }
-
-        player.setVelocity(player.velocityX, player.velocityY);
-        if(Math.abs(player.velocityX) > 0.1 || Math.abs(player.velocityY) > 0.1){
-            player.anims.play('right', true);
+        if (walking === true){
+            steptwo.resume();
         }else{
-            player.anims.play('turnright', true);
-        }*/
-
+            steptwo.pause();
+        }
     }
 }
