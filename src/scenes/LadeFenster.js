@@ -69,6 +69,7 @@ class LadeFenster extends Phaser.Scene {
     createCursor(){
         this.catlogo.cursors = this.input.keyboard.createCursor();
     }
+
     update() {
         catlogo.on('pointerover', () => catlogo.setScale(1.1));
         catlogo.on('pointerout', () => catlogo.setScale(1));

@@ -24,6 +24,9 @@ var boss;
 var raumschiff;
 var jump;
 var eatenAlive;
+var stepthree;
+var forest;
+var onGrass = false;
 class DritterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -50,18 +53,26 @@ class DritterDungeon extends Phaser.Scene {
         this.load.image('raumschiff', "assets/Raumschiff.png");
         this.load.audio('jump', "assets/sound/jump.wav");
         this.load.audio('eaten', "assets/sound/eaten.wav");
+        this.load.audio('stepthree', "assets/sound/stepthree.wav");
+        this.load.audio('forest', "assets/sound/forest.wav");
     }
 
     create() {
         jump = this.sound.add("jump",{loop:false});
         eatenAlive = this.sound.add("eaten",{loop:false});
+        stepthree = this.sound.add("stepthree",{loop:true});
+        forest = this.sound.add("forest",{loop:true});
 
         function gewonnen(){
             boss.setVelocityX(0);
             boss.setVelocityY(0);
             if (gesammeltdrei === 8){
+                stepthree.stop();
+                forest.stop();
                 this.scene.start('WinScene');
             }else{
+                forest.stop();
+                stepthree.stop();
                 this.scene.start('LostScene');
             }
         }
@@ -108,6 +119,7 @@ class DritterDungeon extends Phaser.Scene {
         function gestorben(){
             gesammeltdrei = 0;
             eatenAlive.play();
+            forest.stop();
             this.scene.start('DritterDungeon');
         }
         this.add.image(2500, 300, 'background').setScale(25).setDepth(-2);
@@ -214,9 +226,6 @@ class DritterDungeon extends Phaser.Scene {
         //  Input Events
         cursors = this.input.keyboard.createCursorKeys();
 
-
-
-
         this.physics.add.collider(player, bodenLayer);
         this.physics.add.collider(blumeeins, bodenLayer);
         this.physics.add.collider(blumezwei, bodenLayer);
@@ -269,6 +278,8 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(energyfuenfzehn, platformLayer);
         this.physics.add.collider(energysechzehn, platformLayer);
         this.physics.add.collider(energysiebzehn, platformLayer);
+        stepthree.play();
+        forest.play();
     }
 
     update() {
@@ -281,23 +292,24 @@ class DritterDungeon extends Phaser.Scene {
         const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up);
 
         if (cursors.left.isDown)
-        {
+        {   onGrass = true;
             player.setVelocityX(-160);
             player.anims.play('left', true);
             if(cursors.left.isUp)
-            {
+            {   onGrass = true;
                 player.setVelocityX(0);
                 player.anims.play('turnleft', true);
             }
         }
         else if (cursors.right.isDown)
-        {
+        {   onGrass = true;
             player.setVelocityX(160);
             player.anims.play('right', true);
         }
 
         else if(isJumpJustDown && (player.body.onFloor() || jumpCount < 2)){
             jump.play();
+            onGrass = false;
             player.setVelocityY(-350);
             player.anims.play('up3', true);
             ++jumpCount;
@@ -305,12 +317,19 @@ class DritterDungeon extends Phaser.Scene {
         {
             player.setVelocityX(0);
             player.anims.play('turnright', true);
+            onGrass = false;
         }
 
         if(player.body.onFloor() && !isJumpJustDown){
             jumpCount = 0;
+            onGrass = false;
         }
 
+        if (onGrass === true){
+            stepthree.resume();
+        }else{
+            stepthree.pause();
+        }
     }
 
 

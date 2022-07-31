@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound">
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/eaten.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/fire.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/jump.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/splash.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/step.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/steptwo.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/forest.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/stepthree.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/MenueFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenueFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/LadeFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LadeFenster.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +84,8 @@
       <workItem from="1658335419497" duration="9093000" />
       <workItem from="1658390380745" duration="925000" />
       <workItem from="1659093124947" duration="6052000" />
-      <workItem from="1659254188978" duration="7100000" />
+      <workItem from="1659254188978" duration="7132000" />
+      <workItem from="1659264323293" duration="1677000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -218,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659099227668</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="sound">
+      <created>1659261373803</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1659261373803</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
