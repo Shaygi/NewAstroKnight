@@ -1,4 +1,3 @@
-
 var optionsknopf;
 var menue;
 var playknopf;
@@ -45,6 +44,7 @@ class MenueFenster extends Phaser.Scene {
         optionsknopf.setInteractive();
 
         playknopf.on('pointerdown', () => this.scene.start('ErsterDungeon'));
+        playknopf.on('pointerdown', () => backgroundSong.stop());
         //optionsknopf.on('pointerdown', () => this.scene.start('ErsterDungeon'));
         backgroundSong.play();
 }
