@@ -1,3 +1,5 @@
+var catlogo;
+var starttext;
 class LadeFenster extends Phaser.Scene {
 
     constructor() {
@@ -59,13 +61,21 @@ class LadeFenster extends Phaser.Scene {
     }
 
     create() {
-        this.add.image(740, 360, 'logo');
-
+        catlogo = this.add.image(740, 360, 'logo');
+        catlogo.setInteractive();
+        catlogo.on('pointerdown', () => this.scene.start('MenueFenster'));
+        starttext = this.add.text(650, 600, "Click to start")
+    }
+    createCursor(){
+        this.catlogo.cursors = this.input.keyboard.createCursor();
     }
 
     update() {
-        if(this.input.mousePointer.isDown){
+        catlogo.on('pointerover', () => catlogo.setScale(1.1));
+        catlogo.on('pointerout', () => catlogo.setScale(1));
+
+        /*if(this.input.mousePointer.isDown){
             this.scene.start('MenueFenster');
-        }
+        }*/
     }
 }

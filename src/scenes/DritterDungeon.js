@@ -8,9 +8,25 @@ var todesLayer;
 var blumeeins;
 var blumezwei;
 var blumedrei;
+var energyzehn;
+var energyelf;
+var energyzwoelf;
+var energydreizehn;
+var energyvierzehn;
+var energyfuenfzehn;
+var energysechzehn;
+var energysiebzehn;
 var unsichtbareGrenzeLayer;
 var canDoubleJump = true;
 var jumpCount= 0;
+var gesammeltdrei = 0;
+var boss;
+var raumschiff;
+var jump;
+var eatenAlive;
+var stepthree;
+var forest;
+var onGrass = false;
 class DritterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -22,7 +38,6 @@ class DritterDungeon extends Phaser.Scene {
     }
 
     preload() {
-
         this.load.image('background', "assets/tilemaps/dritterDungeonBackground1.png");
         this.load.image('background2', "assets/tilemaps/dritterDungeonBackground2.png");
         this.load.image('background3', "assets/tilemaps/dritterDungeonBackground3.png");
@@ -33,17 +48,79 @@ class DritterDungeon extends Phaser.Scene {
         this.load.tilemapTiledJSON('dungeon3', 'assets/tilemaps/DritterDungeon.json');
         this.load.spritesheet('astro3', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });//Spieler Spritesheet
         this.load.spritesheet('blume', 'assets/Blume.png', {frameWidth: 480, frameHeight: 480});
+        this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512});
+        this.load.spritesheet('boss', 'assets/boss.png', {frameWidth: 960,frameHeight: 800});
+        this.load.image('raumschiff', "assets/Raumschiff.png");
+        this.load.audio('jump', "assets/sound/jump.wav");
+        this.load.audio('eaten', "assets/sound/eaten.wav");
+        this.load.audio('stepthree', "assets/sound/stepthree.wav");
+        this.load.audio('forest', "assets/sound/forest.wav");
     }
 
     create() {
+        jump = this.sound.add("jump",{loop:false});
+        eatenAlive = this.sound.add("eaten",{loop:false});
+        stepthree = this.sound.add("stepthree",{loop:true});
+        forest = this.sound.add("forest",{loop:true});
+
+        function gewonnen(){
+            boss.setVelocityX(0);
+            boss.setVelocityY(0);
+            if (gesammeltdrei === 8){
+                stepthree.stop();
+                forest.stop();
+                this.scene.start('WinScene');
+            }else{
+                forest.stop();
+                stepthree.stop();
+                this.scene.start('LostScene');
+            }
+        }
+        function sammelnzehn(){
+            ding.play();
+            energyzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnelf(){
+            ding.play();
+            energyelf.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnzwoelf(){
+            ding.play();
+            energyzwoelf.destroy();
+            gesammeltdrei++;
+        }
+        function sammelndreizehn(){
+            ding.play();
+            energydreizehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnvierzehn(){
+            ding.play();
+            energyvierzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnfuenfzehn(){
+            ding.play();
+            energyfuenfzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnsechzehn(){
+            ding.play();
+            energysechzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnsiebzehn(){
+            ding.play();
+            energysiebzehn.destroy();
+            gesammeltdrei++;
+        }
         function gestorben(){
-            blumeeins.setVelocityX(0);
-            blumeeins.setVelocityY(0);
-            blumezwei.setVelocityX(0);
-            blumezwei.setVelocityY(0);
-            blumedrei.setVelocityX(0);
-            blumedrei.setVelocityY(0);
-            player.setPosition(200, 400);
+            gesammeltdrei = 0;
+            eatenAlive.play();
+            forest.stop();
+            this.scene.start('DritterDungeon');
         }
         this.add.image(2500, 300, 'background').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background2').setScale(25).setDepth(-2);
@@ -63,14 +140,36 @@ class DritterDungeon extends Phaser.Scene {
         unsichtbareGrenzeLayer = dungeon.createLayer("unsichtbareGrenze", sterne, 0, 0).setScale(2).setDepth(-1);
         baumLayer = dungeon.createLayer("baum", sterne, 0, 0).setScale(2).setDepth(-1);
         bodenLayer = dungeon.createLayer("boden", sterne, 0, 0).setScale(2).setDepth(-1);
-        player = this.physics.add.sprite(1500,150, 'astro3').setScale(0.08);
+
         blumeeins = this.physics.add.sprite(483.5, 450, 'blume').setScale(0.11);
         blumezwei = this.physics.add.sprite(870, 450, 'blume').setScale(0.11);
         blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.180);
 
+        energyzehn = this.physics.add.sprite(670, 150, 'energy').setScale( 0.05);
+        energyelf = this.physics.add.sprite(3445, 150, 'energy').setScale( 0.05);
+        energyzwoelf = this.physics.add.sprite(1070, 150, 'energy').setScale( 0.05);
+        energydreizehn = this.physics.add.sprite(1440, 250, 'energy').setScale( 0.05);
+        energyvierzehn = this.physics.add.sprite(2165, 150, 'energy').setScale( 0.05);
+        energyfuenfzehn = this.physics.add.sprite(420, 150, 'energy').setScale( 0.05);
+        energysechzehn= this.physics.add.sprite(750, 150, 'energy').setScale( 0.05);
+        energysiebzehn= this.physics.add.sprite(1750, 650, 'energy').setScale( 0.05);
+
+        boss = this.physics.add.sprite(4100,250, 'boss').setScale(0.48);
+        boss.body.setSize(400,440);
+
+        raumschiff = this.physics.add.sprite(3750, 250, 'raumschiff').setScale( 0.27);
+        raumschiff.body.setSize(-10,440);
+        player = this.physics.add.sprite(50,470, 'astro3').setScale(0.08);//50
+        this.add.text(3200, 300, "Da ist dein Rauschiff!! Hast du alle Energiekerne gesammelt?\n               Wenn nicht, könnte es wieder abstürzen.\n                      Pass gut auf dich auf!");
         this.cameras.main.startFollow(player);
         this.cameras.main.roundPixels = true;
 
+        this.anims.create({
+            key:'bossAngriff',
+            frames: this.anims.generateFrameNumbers('boss', {start: 0, end: 7}),
+            frameRate: 5,
+            repeat: -1
+        })
         this.anims.create({
             key:'devour',
             frames: this.anims.generateFrameNumbers('blume', {start: 0, end: 2}),
@@ -148,6 +247,39 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(player, baumLayer);
         baumLayer.setCollisionBetween(11, 161);
 
+        this.physics.add.collider(player, energyzehn, sammelnzehn, null, this);
+        this.physics.add.collider(player, energyelf, sammelnelf, null, this);
+        this.physics.add.collider(player, energyzwoelf, sammelnzwoelf, null, this);
+        this.physics.add.collider(player, energydreizehn, sammelndreizehn, null, this);
+        this.physics.add.collider(player, energyvierzehn, sammelnvierzehn, null, this);
+        this.physics.add.collider(player, energyfuenfzehn, sammelnfuenfzehn, null, this);
+        this.physics.add.collider(player, energysechzehn, sammelnsechzehn, null, this);
+        this.physics.add.collider(player, energysiebzehn, sammelnsiebzehn, null, this);
+
+        this.physics.add.collider(boss, bodenLayer);
+
+        this.physics.add.collider(raumschiff, bodenLayer);
+        this.physics.add.collider(player, raumschiff, gewonnen, null, this);
+
+
+        this.physics.add.collider(energyzehn, bodenLayer);
+        this.physics.add.collider(energyelf, bodenLayer);
+        this.physics.add.collider(energyzwoelf, bodenLayer);
+        this.physics.add.collider(energydreizehn, bodenLayer);
+        this.physics.add.collider(energyvierzehn, bodenLayer);
+        this.physics.add.collider(energyfuenfzehn, bodenLayer);
+        this.physics.add.collider(energysechzehn, bodenLayer);
+        this.physics.add.collider(energysiebzehn, bodenLayer);
+        this.physics.add.collider(energyzehn, platformLayer);
+        this.physics.add.collider(energyelf, platformLayer);
+        this.physics.add.collider(energyzwoelf, platformLayer);
+        this.physics.add.collider(energydreizehn, platformLayer);
+        this.physics.add.collider(energyvierzehn, platformLayer);
+        this.physics.add.collider(energyfuenfzehn, platformLayer);
+        this.physics.add.collider(energysechzehn, platformLayer);
+        this.physics.add.collider(energysiebzehn, platformLayer);
+        stepthree.play();
+        forest.play();
     }
 
     update() {
@@ -156,73 +288,49 @@ class DritterDungeon extends Phaser.Scene {
         blumezwei.anims.play('devour', true);
         blumedrei.anims.play('devour', true);
 
+        boss.anims.play('bossAngriff', true);
         const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up);
 
         if (cursors.left.isDown)
-        {
+        {   onGrass = true;
             player.setVelocityX(-160);
             player.anims.play('left', true);
             if(cursors.left.isUp)
-            {
+            {   onGrass = true;
                 player.setVelocityX(0);
                 player.anims.play('turnleft', true);
             }
         }
-       /* else if(this.input.keyboard.SPACE){
-            player.anims.play('shootright', true);
-            player.setVelocityX(160);
-        }*/
-        /*else if(cursors.left.isUp)
-        {
-            player.setVelocityX(0);
-            player.setVelocityY(0);
-            player.anims.play('turnleft', true);
-        }*/
         else if (cursors.right.isDown)
-        {
+        {   onGrass = true;
             player.setVelocityX(160);
             player.anims.play('right', true);
         }
 
         else if(isJumpJustDown && (player.body.onFloor() || jumpCount < 2)){
-
+            jump.play();
+            onGrass = false;
             player.setVelocityY(-350);
             player.anims.play('up3', true);
             ++jumpCount;
-
-
-
         }else
         {
             player.setVelocityX(0);
             player.anims.play('turnright', true);
+            onGrass = false;
         }
 
         if(player.body.onFloor() && !isJumpJustDown){
             jumpCount = 0;
+            onGrass = false;
         }
 
+        if (onGrass === true){
+            stepthree.resume();
+        }else{
+            stepthree.pause();
+        }
     }
 
-
-
-    /*
-    if(cursors.left.isDown){
-        player.setVelocityX(-160);
-    }else if (cursors.right.isDown){
-        player.setVelocityX(160);
-    }
-    if (cursors.up.isDown){
-        player.setVelocityY(-160);
-    }else if (cursors.down.isDown){
-        player.setVelocityY(160);
-    }
-
-    player.setVelocity(player.velocityX, player.velocityY);
-    if(Math.abs(player.velocityX) > 0.1 || Math.abs(player.velocityY) > 0.1){
-        player.anims.play('right', true);
-    }else{
-        player.anims.play('turnright', true);
-    }*/
 
 }

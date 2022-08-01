@@ -2,14 +2,14 @@ var config = {
     type: Phaser.AUTO,
     width: 1485,
     height: 700,
-    scene: [DritterDungeon],
-physics: {
-    default: 'arcade',
-    arcade: {
-        gravity: {y: 1000},
-        debug: false
+    scene: [LadeFenster, MenueFenster, ErsterDungeon, ZweiterDungeon, DritterDungeon, WinScene, LostScene],
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: {y: 1000},
+            debug: false
+        }
     }
-}
 };
 
 var game = new Phaser.Game(config);

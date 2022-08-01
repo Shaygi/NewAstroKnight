@@ -45,7 +45,13 @@ var touchedsiebenTimes = 0;
 var touchedachtTimes = 0;
 var touchedTimes = 0;
 var gesammelt = 0;
-
+var ding;
+var lava;
+var burned;
+var next;
+var step;
+var fire;
+var isWalking = false;
 class ErsterDungeon extends Phaser.Scene{
 
     constructor() {
@@ -66,68 +72,66 @@ class ErsterDungeon extends Phaser.Scene{
         this.load.spritesheet('astro', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 }); //Astroknight Spritesheet laden
         this.load.spritesheet('ogoni', 'assets/Ogoni.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
         this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
-
+        this.load.audio('collect',"assets/sound/coincollect.wav");
+        this.load.audio('lava', "assets/sound/lava.wav");
+        this.load.audio('fire', "assets/sound/fire.wav");
+        this.load.audio('burned', "assets/sound/burned.wav");
+        //https://mixkit.co/free-sound-effects/volcano/
+        this.load.audio('nextlevel', "assets/sound/nextlvl.wav");
+        this.load.audio('step', "assets/sound/step.ogg");
+        //https://opengameart.org/content/footsteps-leather-cloth-armor
     }
 
     create(){
+        burned = this.sound.add("burned",{loop:false});
+        ding = this.sound.add("collect",{loop:false});
+        lava = this.sound.add("lava",{loop:true});
+        fire = this.sound.add("fire",{loop:true, volume: 0.5});
+        next = this.sound.add("nextlevel",{loop:false});
+        step = this.sound.add("step",{loop:true, volume: 1});
         function sammeln(){
             energy.destroy();
+            ding.play();
             gesammelt++;
         }
         function sammelnzwei(){
             energytwo.destroy();
+            ding.play();
             gesammelt++;
         }
         function sammelndrei(){
             energythree.destroy();
+            ding.play();
             gesammelt++;
         }
         function sammelnfour(){
             energyfour.destroy();
+            ding.play();
             gesammelt++;
         }
 
         function gestorben(){
-            //Spieler auf die Ausgangsposition zurücksetzen
-            player.setPosition(600, 200);
-            // damit ogons nicht weggeschubst werden, X und Y fixieren
-            ogon.setVelocityX(0);
-            ogon.setVelocityY(0);
-            ogoneins.setVelocityX(0);
-            ogoneins.setVelocityY(0);
-            ogonzwei.setVelocityX(0);
-            ogonzwei.setVelocityY(0);
-            ogondrei.setVelocityX(0);
-            ogondrei.setVelocityY(0);
-            ogonvier.setVelocityX(0);
-            ogonvier.setVelocityY(0);
-            ogonfuenf.setVelocityX(0);
-            ogonfuenf.setVelocityY(0);
-            ogonsechs.setVelocityX(0);
-            ogonsechs.setVelocityY(0);
-            ogonsieben.setVelocityX(0);
-            ogonsieben.setVelocityY(0);
-            ogonacht.setVelocityX(0);
-            ogonacht.setVelocityY(0);
-            ogonneun.setVelocityX(0);
-            ogonneun.setVelocityY(0);
-            ogonzehn.setVelocityX(0);
-            ogonzehn.setVelocityY(0);
-            ogonelf.setVelocityX(0);
-            ogonelf.setVelocityY(0);
-            ogonzwoelf.setVelocityX(0);
-            ogonzwoelf.setVelocityY(0);
-            ogondreizehn.setVelocityX(0);
-            ogondreizehn.setVelocityY(0);
+            this.scene.start('ErsterDungeon');
+            gesammelt = 0;
+            burned.play();
+            lava.stop();
+            fire.stop();
+            this.sound.get('step').stop();
         }
 
         function naechstesLevel(){
-            if(gesammelt == 4) {
+            if(gesammelt === 4) {
+                next.play();
+                step.stop();
+                lava.stop();
+                fire.stop();
+                this.sound.get('lava').stop();
+                this.sound.get('step').stop();
                 this.scene.start('ZweiterDungeon'); //Starts next Scene
             }
         }
 
-        this.add.text(100, 100, "Sammle alle Bruchteile deines Raumschiffes!");
+        this.add.text(100, 100, "Sammle alle Energiekerne deines Raumschiffes!");
         //Map key
         const dungeon2 = this.make.tilemap({ key: "dungeon2" });
         let cave = dungeon2.addTilesetImage("cave", "cave");
@@ -141,8 +145,10 @@ class ErsterDungeon extends Phaser.Scene{
         ausgang = dungeon2.createLayer("Ausgang", cave, 60, 0).setScale(3).setDepth(-1);
         let dekorLayer = dungeon2.createLayer("dekor", cave, 60, 0).setScale(3).setDepth(-1);
         grenzLayer = dungeon2.createLayer("grenze",cave, 60,0).setScale(3).setDepth(-1);
-        //player = this.physics.add.sprite(610, 170, 'astro').setScale(0.15);
+
+        //Player
         player = this.physics.add.sprite(600, 170, 'astro').setScale(0.15);
+
         //add enemies
         energy = this.physics.add.sprite(500, 800, 'energy').setScale( 0.1);
         energytwo = this.physics.add.sprite(1000, 900, 'energy').setScale( 0.1);
@@ -174,12 +180,6 @@ class ErsterDungeon extends Phaser.Scene{
         cursors = this.input.keyboard.createCursorKeys();
 
         //Animationen
-        this.anims.create({
-            key: 'shine',
-            frames: this.anims.generateFrameNumbers('energy', {start:0 , end: 2}),
-            frameRate: 6,
-            repeat: -1
-        });
 
         this.anims.create({
             key: 'walk',
@@ -346,7 +346,9 @@ class ErsterDungeon extends Phaser.Scene{
         randerLayer.setCollisionBetween(176,293);
         ausgang.setCollisionBetween(0, 200);
         randerLayer.setCollisionBetween(176,293);
-
+        lava.play();
+        fire.play();
+        step.play();
     }
 
     update(){
@@ -378,105 +380,108 @@ class ErsterDungeon extends Phaser.Scene{
         touchedachtTimes = touchedacht % 2;
 
 
-        if(anWand == 0 && touched == 0 ){
+        if(anWand === 0 && touched === 0 ){
               ogon.setVelocityX(160);
 
-        }else if (anWand == 1 && touchedTimes > 0){
+        }else if (anWand === 1 && touchedTimes > 0){
                 ogon.setVelocityX(-160);
 
-        }else if(anWand == 1 && touchedTimes == 0){
+        }else if(anWand === 1 && touchedTimes === 0){
             ogon.setVelocityX(160);
-
         }
 
 
-        if(anWandzwei == 0 && touchedzwei == 0 ){
+        if(anWandzwei === 0 && touchedzwei === 0 ){
                 ogoneins.setVelocityX(160);
-        }else if (anWandzwei == 1 && touchedzweiTimes > 0){
+        }else if (anWandzwei === 1 && touchedzweiTimes > 0){
                 ogoneins.setVelocityX(-160);
-        }else if(anWandzwei == 1 && touchedzweiTimes == 0){
+        }else if(anWandzwei === 1 && touchedzweiTimes === 0){
                 ogoneins.setVelocityX(160);
         }
 
-        if(anWandzwei == 0 && toucheddrei == 0 ){
+        if(anWandzwei === 0 && toucheddrei === 0 ){
             ogonzwei.setVelocityX(-160);
             ogondrei.setVelocityX(160);
-        }else if (anWandzwei == 1 && toucheddreiTimes > 0){
+        }else if (anWandzwei === 1 && toucheddreiTimes > 0){
             ogonzwei.setVelocityX(160);
             ogondrei.setVelocityX(-160);
-        }else if(anWandzwei == 1 && toucheddreiTimes == 0){
+        }else if(anWandzwei === 1 && toucheddreiTimes === 0){
             ogonzwei.setVelocityX(-160);
             ogondrei.setVelocityX(160);
         }
 
-        if(anWandzwei == 0 && touchedvier == 0 ){
+        if(anWandzwei === 0 && touchedvier === 0 ){
             ogonsechs.setVelocityY(-160);
-        }else if (anWandzwei == 1 && touchedvierTimes > 0){
+        }else if (anWandzwei === 1 && touchedvierTimes > 0){
             ogonsechs.setVelocityY(160);
-        }else if(anWandzwei == 1 && touchedvierTimes == 0){
+        }else if(anWandzwei === 1 && touchedvierTimes === 0){
             ogonsechs.setVelocityY(-160);
         }
 
 
-        if(anWandzwei == 0 && touchedfuenf == 0 ){
+        if(anWandzwei === 0 && touchedfuenf === 0 ){
             ogonsieben.setVelocityY(-160);
             ogonacht.setVelocityY(160);
-        }else if (anWandzwei == 1 && touchedfuenfTimes > 0){
+        }else if (anWandzwei === 1 && touchedfuenfTimes > 0){
             ogonsieben.setVelocityY(160);
             ogonacht.setVelocityY(-160);
-        }else if(anWandzwei == 1 && touchedfuenfTimes == 0){
+        }else if(anWandzwei === 1 && touchedfuenfTimes === 0){
             ogonsieben.setVelocityY(-160);
             ogonacht.setVelocityY(160);
         }
 
 
-        if(anWandzwei == 0 && touchedsechs == 0 ){
+        if(anWandzwei === 0 && touchedsechs === 0 ){
             ogonzwoelf.setVelocityX(160);
-        }else if (anWandzwei == 1 && touchedsechsTimes > 0){
+        }else if (anWandzwei === 1 && touchedsechsTimes > 0){
             ogonzwoelf.setVelocityX(-160);
-        }else if(anWandzwei == 1 && touchedsechsTimes == 0){
+        }else if(anWandzwei === 1 && touchedsechsTimes === 0){
             ogonzwoelf.setVelocityX(160);
         }
 
 
 
-        if(anWandzwei == 0 && touchedsieben == 0 ){
+        if(anWandzwei === 0 && touchedsieben === 0 ){
             ogondreizehn.setVelocityY(160);
-        }else if (anWandzwei == 1 && touchedsiebenTimes > 0){
+        }else if (anWandzwei === 1 && touchedsiebenTimes > 0){
             ogondreizehn.setVelocityY(-160);
-        }else if(anWandzwei == 1 && touchedsiebenTimes == 0){
+        }else if(anWandzwei === 1 && touchedsiebenTimes === 0){
             ogondreizehn.setVelocityY(160);
         }
 
-        if(anWandzwei == 0 && touchedacht == 0 ){
+        if(anWandzwei === 0 && touchedacht === 0 ){
             ogonneun.setVelocityX(-260);
             ogonneun.setVelocityY(-260);
-        }else if (anWandzwei == 1 && touchedachtTimes > 0){
+        }else if (anWandzwei === 1 && touchedachtTimes > 0){
             ogonneun.setVelocityX(260);
             ogonneun.setVelocityY(260);
-        }else if(anWandzwei == 1 && touchedachtTimes == 0){
+        }else if(anWandzwei === 1 && touchedachtTimes === 0){
             ogonneun.setVelocityX(-260);
             ogonneun.setVelocityY(-260);
         }
+
 
         if (cursors.left.isDown)
         {
+            isWalking = true;
             player.setVelocityX(-160);
-
             player.anims.play('left', true);
 
         }
         else if (cursors.right.isDown)
-        {
+        { isWalking = true;
             player.setVelocityX(160);
             player.anims.play('right', true);
+
         }
         else if (cursors.up.isDown)
-        {
+        { isWalking = true;
             player.setVelocityY(-160);
             player.anims.play('up', true);
+
         }
         else if (cursors.down.isDown) {
+            isWalking = true;
             player.setVelocityY(160);
             player.anims.play('down', true);
         }
@@ -485,7 +490,13 @@ class ErsterDungeon extends Phaser.Scene{
             player.setVelocityX(0);
             player.setVelocityY(0);
             player.anims.play('turnright', true);
+            isWalking = false;
         }
 
+        if (isWalking === true){
+            step.resume();
+        }else{
+            step.pause();
+        }
     }
 }
