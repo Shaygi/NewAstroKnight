@@ -28,6 +28,11 @@ var gesammeltzwei = 0;
 var walking = false;
 var steptwo;
 var blobsplash;
+var grunerMonster;
+var grunerMonsterEins;
+var monstertouched = 0;
+var monsterAnWand = 0;
+var monsterTouchedTimes = 0;
 class ZweiterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -50,9 +55,13 @@ class ZweiterDungeon extends Phaser.Scene {
         this.load.spritesheet('energy', 'assets/energy.png', {frameWidth: 512,frameHeight: 512}); //Ogoni Spritesheet laden
         this.load.audio('steptwo', "assets/sound/steptwo.ogg");
         this.load.audio('splash', "assets/sound/splash.wav");
+        this.load.spritesheet('grunerMonster', 'assets/grunMon.png', { frameWidth: 512, frameHeight:512});
     }
 
     create() {
+
+        grunerMonster = this.physics.add.sprite(1700, 390, 'grunerMonster').setScale(0.11);
+        grunerMonsterEins = this.physics.add.sprite(1940, 850, 'grunerMonster').setScale(0.11);
         steptwo = this.sound.add("steptwo",{loop:true, volume: 1});
         blobsplash = this.sound.add("splash",{loop:true, volume: 0.2});
         function sammelnfuenf(){
@@ -88,7 +97,14 @@ class ZweiterDungeon extends Phaser.Scene {
         function blobAnWandAngekommenZwei(){
             blobAnWandZwei = 1; //Wenn das erste mal eine Wand berührt wird
             blobtouchedZwei ++; //Wie oft die Wand berührt wurde
+            // function
         }
+        function monsterAnWandAngekommen(){
+                monsterAnWand = 1; //Wenn das erste mal eine Wand berührt wird
+                monstertouched ++; //Wie oft die Wand berührt wurde
+
+        }
+
         function naechstesLevel(){
             if(gesammeltzwei === 5){
                 steptwo.stop();
@@ -100,6 +116,7 @@ class ZweiterDungeon extends Phaser.Scene {
             gesammeltzwei = 0;
             steptwo.stop();
             blobsplash.stop();
+
             this.scene.start('ZweiterDungeon');
         }
         const dungeon = this.make.tilemap({ key: "dungeon" });
@@ -224,6 +241,25 @@ class ZweiterDungeon extends Phaser.Scene {
         this.physics.add.collider(playerzwei, energyacht, sammelnacht, null, this);
         this.physics.add.collider(playerzwei, energyneun, sammelnneun, null, this);
 
+        this.anims.create({
+            key: 'mOben',
+            frames: this.anims.generateFrameNumbers('grunerMonster', { start: 0, end: 4 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'mUnten',
+            frames: this.anims.generateFrameNumbers('grunerMonster', { start: 5, end: 9 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        this.physics.add.collider(playerzwei, grunerMonster, gestorben, null, this);
+        this.physics.add.collider(playerzwei, grunerMonsterEins, gestorben, null, this);
+
+        this.physics.add.collider(grunerMonsterEins, wandLayer, monsterAnWandAngekommen, null, this);
+        this.physics.add.collider(grunerMonster, wandLayer, monsterAnWandAngekommen, null, this);
+
         wandLayer.setCollisionBetween(265,352);
         wandLayer.setCollisionBetween(372, 376);
         wandLayer.setCollision(251);
@@ -251,6 +287,27 @@ class ZweiterDungeon extends Phaser.Scene {
         blobdrei.anims.play('blub', true);
         blobfuenf.anims.play('blub', true);
         blobsechs.anims.play('blub', true);
+
+        monsterTouchedTimes = monstertouched % 2;
+        //grunerMonster.anims.play('grunerMonster',true);
+        //grunerMonsterEins.anims.play('grunerMonster',true);
+
+        if(monsterAnWand=== 0 && monstertouched === 0){
+            grunerMonsterEins.setVelocityY(160);
+            grunerMonsterEins.anims.play('mOben',true);
+            grunerMonster.setVelocityY(160);
+            grunerMonster.anims.play('mOben',true);
+        }else if(monsterAnWand ===1 && monsterTouchedTimes > 0){
+            grunerMonsterEins.setVelocityY(-160);
+            grunerMonsterEins.anims.play('mUnten', true);
+            grunerMonster.setVelocityY(-160);
+            grunerMonster.anims.play('mUnten', true);
+        }else if(monsterAnWand ===1 && monsterTouchedTimes === 0){
+            grunerMonsterEins.setVelocityY(160);
+            grunerMonsterEins.anims.play('mOben', true);
+            grunerMonster.setVelocityY(160);
+            grunerMonster.anims.play('mOben', true);
+        }
 
 
         if(blobAnWand === 0 && blobtouched === 0 ){
