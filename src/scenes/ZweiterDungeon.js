@@ -9,6 +9,8 @@ var blobeins;
 var blobzwei;
 var blobdrei;
 var blobvier;
+var blobfuenf;
+var blobsechs;
 var speed;
 var rechtsoderlinks = 0;
 var blobtouched = 0;
@@ -112,14 +114,17 @@ class ZweiterDungeon extends Phaser.Scene {
         wasserLayer = dungeon.createLayer("wasser", terrain, 60, 0).setDepth(-1);
         playerzwei = this.physics.add.sprite(300, 590, 'astro2').setScale(0.15);
 
+        //Schleim Monster
         blob = this.physics.add.sprite(330, 790, 'blob').setScale(0.05);
         blobeins = this.physics.add.sprite(350, 1000, 'blob').setScale(0.05);
         blobzwei = this.physics.add.sprite(800, 690, 'blob').setScale(0.05);
-        blobdrei = this.physics.add.sprite(1200, 690, 'blob').setScale(0.05);
+        blobdrei = this.physics.add.sprite(1210, 590, 'blob').setScale(0.05);
         blobvier = this.physics.add.sprite(400, 200, 'blob').setScale(0.05);
-
+        blobfuenf = this.physics.add.sprite(855, 500, 'blob').setScale(0.05);
+        blobsechs = this.physics.add.sprite(800, 310, 'blob').setScale(0.05);
         this.cameras.main.startFollow(playerzwei); //Kamera folgt dem Spieler
         this.cameras.main.roundPixels = true; //verhindert tilebleeding
+
         //Animations
         this.anims.create({
             key: 'blub',
@@ -196,6 +201,8 @@ class ZweiterDungeon extends Phaser.Scene {
         this.physics.add.collider(playerzwei, blobzwei, gestorben, null, this);
         this.physics.add.collider(playerzwei, blobdrei, gestorben, null, this);
         this.physics.add.collider(playerzwei, blobvier, gestorben, null, this);
+        this.physics.add.collider(playerzwei, blobfuenf, gestorben, null, this);
+        this.physics.add.collider(playerzwei, blobsechs, gestorben, null, this);
         //spacebar = this.input.keyboard.addKey(Phaser.input.Keyboard.KeyCodes.SPACE);
         this.physics.add.collider(blob, wandLayer, blobAnWandAngekommenZwei, null, this);
         this.physics.add.collider(blobeins, wandLayer);
@@ -242,6 +249,8 @@ class ZweiterDungeon extends Phaser.Scene {
         blobeins.anims.play('blub', true);
         blobzwei.anims.play('blub', true);
         blobdrei.anims.play('blub', true);
+        blobfuenf.anims.play('blub', true);
+        blobsechs.anims.play('blub', true);
 
 
         if(blobAnWand === 0 && blobtouched === 0 ){

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound" />
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,14 +29,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/shiri/IdeaProjects/NewAstroKnight/src/assets/sound"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/shiri/IdeaProjects/NewAstroKnight/src/assets/sound&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\sound" />
@@ -82,6 +85,7 @@
       <workItem from="1659264323293" duration="1709000" />
       <workItem from="1659267255961" duration="475000" />
       <workItem from="1659278592200" duration="2226000" />
+      <workItem from="1659445613043" duration="1350000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -258,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659441892903</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="sound">
+      <created>1659445625416</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1659445625416</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
