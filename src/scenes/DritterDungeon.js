@@ -27,6 +27,7 @@ var eatenAlive;
 var stepthree;
 var forest;
 var onGrass = false;
+
 class DritterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -44,6 +45,7 @@ class DritterDungeon extends Phaser.Scene {
         this.load.image('background4', "assets/tilemaps/dritterDungeonStart.png");
         this.load.image('Walk', "assets/Walk.png");
         this.load.image('Jump', "assets/Jump.png");
+        this.load.image('laser', "assets/Laser.png");
         this.load.image("sterne", "assets/tilemaps/star.png"); //Tileset
         this.load.tilemapTiledJSON('dungeon3', 'assets/tilemaps/DritterDungeon.json');
         this.load.spritesheet('astro3', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });//Spieler Spritesheet
@@ -79,6 +81,7 @@ class DritterDungeon extends Phaser.Scene {
                 this.scene.start('LostScene');
             }
         }
+
         function sammelnzehn(){
             ding.play();
             energyzehn.destroy();
@@ -263,7 +266,7 @@ class DritterDungeon extends Phaser.Scene {
 
         this.physics.add.collider(raumschiff, bodenLayer);
         this.physics.add.collider(player, raumschiff, gewonnen, null, this);
-
+        this.physics.add.collider(bullets, boss, getroffen, null, this);
 
         this.physics.add.collider(energyzehn, bodenLayer);
         this.physics.add.collider(energyelf, bodenLayer);
@@ -309,7 +312,6 @@ class DritterDungeon extends Phaser.Scene {
             player.setVelocityX(160);
             player.anims.play('right', true);
         }
-
         else if(isJumpJustDown && (player.body.onFloor() || jumpCount < 2)){
             jump.play();
             onGrass = false;
