@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound">
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/lose.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/won.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/Button.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/video/beginning.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scenes/Story.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/LostScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LostScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/LadeFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LadeFenster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/MenueFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenueFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/WinScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/WinScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,16 +37,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shiri/IdeaProjects/NewAstroKnight/src/assets/sound&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/shiri/IdeaProjects/NewAstroKnight/src/assets/video"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\video" />
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\sound" />
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src" />
     </key>
@@ -237,7 +241,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659267712973</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="sound">
+      <created>1659435084217</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659435084217</updated>
+    </task>
+    <task id="LOCAL-00023" summary="sound">
+      <created>1659435128409</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1659435128409</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

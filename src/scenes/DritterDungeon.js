@@ -58,21 +58,24 @@ class DritterDungeon extends Phaser.Scene {
     }
 
     create() {
-        jump = this.sound.add("jump",{loop:false});
+        jump = this.sound.add("jump",{loop:false, volume: 0.2});
         eatenAlive = this.sound.add("eaten",{loop:false});
         stepthree = this.sound.add("stepthree",{loop:true});
-        forest = this.sound.add("forest",{loop:true});
+        forest = this.sound.add("forest",{loop:true, volume: 0.5});
 
         function gewonnen(){
             boss.setVelocityX(0);
             boss.setVelocityY(0);
+
             if (gesammeltdrei === 8){
                 stepthree.stop();
                 forest.stop();
+                bgMusic.stop();
                 this.scene.start('WinScene');
             }else{
                 forest.stop();
                 stepthree.stop();
+                bgMusic.stop();
                 this.scene.start('LostScene');
             }
         }

@@ -1,5 +1,6 @@
 var catlogo;
 var starttext;
+var backgroundSong;
 class LadeFenster extends Phaser.Scene {
 
     constructor() {
@@ -9,6 +10,7 @@ class LadeFenster extends Phaser.Scene {
 
     preload(){
 
+        this.load.audio('menuSong', "assets/sound/menuMusic.wav");
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
@@ -61,9 +63,11 @@ class LadeFenster extends Phaser.Scene {
     }
 
     create() {
+        backgroundSong = this.sound.add("menuSong",{loop:false, volume: 1});
         catlogo = this.add.image(740, 360, 'logo');
         catlogo.setInteractive();
         catlogo.on('pointerdown', () => this.scene.start('MenueFenster'));
+        catlogo.on('pointerdown', () => backgroundSong.play());
         starttext = this.add.text(650, 600, "Click to start")
     }
     createCursor(){

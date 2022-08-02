@@ -1,9 +1,7 @@
 var optionsknopf;
 var menue;
 var playknopf;
-var playListener
-var optionistener;
-var backgroundSong;
+var buttonSound;
 class MenueFenster extends Phaser.Scene {
 
     constructor() {
@@ -24,11 +22,12 @@ class MenueFenster extends Phaser.Scene {
         this.load.spritesheet('menue', 'assets/Menuesprite.png', {frameHeight: 1290, frameWidth: 2410, spacing: 10});
         this.load.image('play', 'assets/Play.png');
         this.load.image('options', 'assets/Options.png');
-        this.load.audio('menuSong', "assets/sound/menuMusic.wav");
+        this.load.audio('click', "assets/sound/Button.wav");
     }
 
     create() {
-        backgroundSong = this.sound.add("menuSong",{loop:true, volume: 1});
+
+        buttonSound = this.sound.add("click", {loop: false});
         this.anims.create({
             key: 'ablauf',
             frames: this.anims.generateFrameNumbers('menue', {start: 0, end: 3}),
@@ -44,18 +43,25 @@ class MenueFenster extends Phaser.Scene {
         optionsknopf.setInteractive();
 
         playknopf.on('pointerdown', () => this.scene.start('ErsterDungeon'));
-        playknopf.on('pointerdown', () => backgroundSong.stop());
-        //optionsknopf.on('pointerdown', () => this.scene.start('ErsterDungeon'));
-        backgroundSong.play();
+        playknopf.on('pointerdown', () => buttonSound.play());
+
+        optionsknopf.on('pointerdown', () => this.scene.start('Story'));
+        optionsknopf.on('pointerdown', () => buttonSound.play());
+        backgroundSong.resume();
 }
 
     createCursor(){
         this.playknopf.cursors = this.input.keyboard.createCursor();
     }
     update(){
-        playknopf.on('pointerdown', () => backgroundSong.stop());
+        playknopf.on('pointerdown', () => backgroundSong.pause());
+        optionsknopf.on('pointerdown', () =>  backgroundSong.pause());
+
         playknopf.on('pointerover', () => playknopf.setScale(0.58));
         playknopf.on('pointerout', () => playknopf.setScale(0.56));
+
+        optionsknopf.on('pointerover', () => optionsknopf.setScale(0.45));
+        optionsknopf.on('pointerout', () => optionsknopf.setScale(0.4));
     }
 
 }
