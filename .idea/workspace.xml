@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound">
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/Button.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/video/beginning.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/Story.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sound/storyBg.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/LadeFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LadeFenster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/MenueFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenueFenster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Story.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Story.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +38,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/shiri/IdeaProjects/NewAstroKnight/src/assets/video"
+    "last_opened_file_path": "C:/Users/shiri/IdeaProjects/NewAstroKnight/src/assets/sound"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\video" />
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\sound" />
+      <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src\assets\video" />
       <recent name="C:\Users\shiri\IdeaProjects\NewAstroKnight\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -255,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659435128409</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="sound">
+      <created>1659438900003</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1659438900004</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

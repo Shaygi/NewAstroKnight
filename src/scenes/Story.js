@@ -28,6 +28,8 @@ class Story extends Phaser.Scene {
     update(){
        storyVid.on('pointerdown', () => this.scene.start('MenueFenster'));
        storyVid.on('pointerdown', () => storyVid.stop());
-        storyVid.on('pointerdown', () => backgroundSong.resume());
+       storyVid.on('pointerdown', () => backgroundSong.resume());
+        storyVid.on('pointerdown', () => storySound.pause());
+
     }
 }

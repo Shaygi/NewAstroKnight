@@ -1,5 +1,5 @@
 var cursors;
-var spacebar;
+var space;
 var player;
 var bodenLayer;
 var baumLayer;

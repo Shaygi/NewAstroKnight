@@ -1,6 +1,7 @@
 var catlogo;
 var starttext;
 var backgroundSong;
+var storySound;
 class LadeFenster extends Phaser.Scene {
 
     constructor() {
@@ -9,7 +10,7 @@ class LadeFenster extends Phaser.Scene {
 // Create a new Phaser Game object
 
     preload(){
-
+        this.load.audio('storySound', "assets/sound/storyBg.mp3");
         this.load.audio('menuSong', "assets/sound/menuMusic.wav");
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
@@ -63,6 +64,9 @@ class LadeFenster extends Phaser.Scene {
     }
 
     create() {
+        storySound = this.sound.add("storySound", {loop: true});
+        storySound.play();
+        storySound.pause();
         backgroundSong = this.sound.add("menuSong",{loop:false, volume: 1});
         catlogo = this.add.image(740, 360, 'logo');
         catlogo.setInteractive();

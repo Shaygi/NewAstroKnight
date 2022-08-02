@@ -2,6 +2,7 @@ var optionsknopf;
 var menue;
 var playknopf;
 var buttonSound;
+
 class MenueFenster extends Phaser.Scene {
 
     constructor() {
@@ -23,6 +24,7 @@ class MenueFenster extends Phaser.Scene {
         this.load.image('play', 'assets/Play.png');
         this.load.image('options', 'assets/Options.png');
         this.load.audio('click', "assets/sound/Button.wav");
+
     }
 
     create() {
@@ -47,6 +49,7 @@ class MenueFenster extends Phaser.Scene {
 
         optionsknopf.on('pointerdown', () => this.scene.start('Story'));
         optionsknopf.on('pointerdown', () => buttonSound.play());
+        optionsknopf.on('pointerdown', () => storySound.resume());
         backgroundSong.resume();
 }
 
