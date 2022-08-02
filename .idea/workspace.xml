@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound">
-      <change afterPath="$PROJECT_DIR$/src/assets/sound/storyBg.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/LadeFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LadeFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/MenueFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenueFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/Story.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Story.js" afterDir="false" />
-    </list>
+    <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -258,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659438900004</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="sound">
+      <created>1659441892903</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1659441892903</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
