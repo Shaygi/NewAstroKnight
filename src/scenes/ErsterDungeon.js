@@ -182,7 +182,6 @@ class ErsterDungeon extends Phaser.Scene{
 
         this.cameras.main.startFollow(player); //Kamera folgt Spieler
         this.cameras.main.roundPixels = true;
-
         cursors = this.input.keyboard.createCursorKeys();
 
         //Animationen

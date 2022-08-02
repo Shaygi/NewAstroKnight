@@ -11,7 +11,7 @@ class LadeFenster extends Phaser.Scene {
 
     preload(){
         this.load.audio('storySound', "assets/sound/storyBg.mp3");
-        this.load.audio('menuSong', "assets/sound/menuMusic.wav");
+        this.load.audio('menuSong', "assets/sound/menuMusic.mp3");
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
@@ -67,7 +67,7 @@ class LadeFenster extends Phaser.Scene {
         storySound = this.sound.add("storySound", {loop: true});
         storySound.play();
         storySound.pause();
-        backgroundSong = this.sound.add("menuSong",{loop:false, volume: 1});
+        backgroundSong = this.sound.add("menuSong",{loop:false, volume: 0.5});
         catlogo = this.add.image(740, 360, 'logo');
         catlogo.setInteractive();
         catlogo.on('pointerdown', () => this.scene.start('MenueFenster'));
