@@ -51,6 +51,7 @@ var burned;
 var next;
 var step;
 var fire;
+var bgMusic;
 var isWalking = false;
 class ErsterDungeon extends Phaser.Scene{
 
@@ -80,15 +81,27 @@ class ErsterDungeon extends Phaser.Scene{
         this.load.audio('nextlevel', "assets/sound/nextlvl.wav");
         this.load.audio('step', "assets/sound/step.ogg");
         //https://opengameart.org/content/footsteps-leather-cloth-armor
+        this.load.audio('bgMusic', "assets/sound/bgMusic.mp3");
+
     }
 
     create(){
+
         burned = this.sound.add("burned",{loop:false});
         ding = this.sound.add("collect",{loop:false});
         lava = this.sound.add("lava",{loop:true});
         fire = this.sound.add("fire",{loop:true, volume: 0.5});
         next = this.sound.add("nextlevel",{loop:false});
         step = this.sound.add("step",{loop:true, volume: 1});
+        bgMusic = this.sound.add("bgMusic",{loop:true, volume: 0.5});
+
+
+        function backgroundMusic(){
+            bgMusic.play();
+        }
+
+
+
         function sammeln(){
             energy.destroy();
             ding.play();
