@@ -34,7 +34,7 @@ var onGrass = false;
 class DritterDungeon extends Phaser.Scene {
     //Konstruktor
     constructor() {
-
+        //Spiel übernimmt den Konstruktor der Haupt-JavaScript Datei und überschreibt den Keynamen
         super({
             key:'DritterDungeon',
         });
@@ -71,8 +71,6 @@ class DritterDungeon extends Phaser.Scene {
         forest = this.sound.add("forest",{loop:true, volume: 0.5});
 
         function gewonnen(){
-            boss.setVelocityX(0);
-            boss.setVelocityY(0);
 
             if (gesammeltdrei === 11){
                 stepthree.stop();
@@ -143,18 +141,20 @@ class DritterDungeon extends Phaser.Scene {
             gesammeltdrei++;
         }
         function gestorben(){
-            gesammeltdrei = 0;
-            eatenAlive.play();
-            forest.stop();
-            this.scene.start('DritterDungeon');
+            gesammeltdrei = 0;//Anzahl an gesammelten Kernen wird auf 0 zurückgesetzt
+            eatenAlive.play();//Sound wird abgespielt
+            forest.stop();//sound wird gestoppt um eine Verdopplung der Musik zu vermeiden
+            this.scene.start('DritterDungeon');//Szene wird von vorne abgespielt
         }
         this.add.image(2500, 300, 'background').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background2').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background3').setScale(25).setDepth(-2);
         this.add.image(-90, 650, 'background4').setScale(0.4).setDepth(-2);
+        //Illustrierte Anweisungen für die Steuerung
         this.add.image(100, 400, 'Jump').setScale(0.1).setDepth(-2);
         this.add.image(300, 330, 'Walk').setScale(0.1).setDepth(-2);
 
+        //tilemap/-set wird hinzugefügt
         const dungeon = this.make.tilemap({key: "dungeon3"});
         let sterne = dungeon.addTilesetImage("light", "sterne");
         // layers
@@ -339,31 +339,28 @@ class DritterDungeon extends Phaser.Scene {
     }
     //Update Funktion
     update() {
-
+        //Fleischfressende Pflanzen und Bossmonster werden animiert
         blumeeins.anims.play('devour', true);
         blumezwei.anims.play('devour', true);
         blumedrei.anims.play('devour', true);
 
         boss.anims.play('bossAngriff', true);
         miniboss.anims.play('bossAngriff', true);
+        //Prüft ob der obere Cursor bereits kurz davor gedrückt wurde
         const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up);
 
+        //Cursor events
         if (cursors.left.isDown)
         {   onGrass = true;
             player.setVelocityX(-160);
             player.anims.play('left', true);
-            if(cursors.left.isUp)
-            {   onGrass = true;
-                player.setVelocityX(0);
-                player.anims.play('turnleft', true);
-            }
         }
         else if (cursors.right.isDown)
         {   onGrass = true;
             player.setVelocityX(160);
             player.anims.play('right', true);
         }
-        else if(isJumpJustDown && (player.body.onFloor() || jumpCount < 2)){
+        else if(isJumpJustDown && (player.body.onFloor() || jumpCount < 2)){//kann springen, wenn der Jumpcount nicht höher als 2 ist
             jump.play();
             onGrass = false;
             player.setVelocityY(-350);
@@ -375,12 +372,12 @@ class DritterDungeon extends Phaser.Scene {
             player.anims.play('turnright', true);
             onGrass = false;
         }
-
+        // wenn er den Boden berührt oder nicht bereits gesprungen ist, wird der jumpCount zurückgesetzt
         if(player.body.onFloor() && !isJumpJustDown){
-            jumpCount = 0;
+            jumpCount = 0;//
             onGrass = false;
         }
-
+        //wenn der Spieler läuft, wird ein Sound abgespielt
         if (onGrass === true){
             stepthree.resume();
         }else{

@@ -40,7 +40,7 @@ class ZweiterDungeon extends Phaser.Scene {
             physics: {
                 default: 'arcade',
                 arcade: {
-                    gravity: {y: 0},
+                    gravity: {y: 0}, //Gravitation wird überschrieben. Schwerkraft auf 0, weil wir ein Topdown Dungeon haben
                     debug: false
                 }
             }
@@ -48,6 +48,7 @@ class ZweiterDungeon extends Phaser.Scene {
     }
 
     preload() {
+        //Inhalte laden
         this.load.image("terrain", "assets/tilemaps/tiles.png"); //Tileset
         this.load.tilemapTiledJSON('dungeon', 'assets/tilemaps/Dungeon.json');
         this.load.spritesheet('astro2', 'assets/Astro2.png', { frameWidth: 320, frameHeight: 464 });
@@ -65,9 +66,9 @@ class ZweiterDungeon extends Phaser.Scene {
         steptwo = this.sound.add("steptwo",{loop:true, volume: 1});
         blobsplash = this.sound.add("splash",{loop:true, volume: 0.2});
         function sammelnfuenf(){
-            energyfuenf.destroy();
-            ding.play();
-            gesammeltzwei++;
+            energyfuenf.destroy();//Energiekern wird entfernt
+            ding.play();//sound wird abgespielt
+            gesammeltzwei++;//variable gesammeltzwei wird um 1 erhöht
         }
         function sammelnsechs(){
             energysechs.destroy();
@@ -91,16 +92,16 @@ class ZweiterDungeon extends Phaser.Scene {
         }
 
         function blobAnWandAngekommen(){
-            blobAnWand = 1; //Wenn das erste mal eine Wand berührt wird
+            blobAnWand = 1; //Wenn das erste Mal eine Wand berührt wird
             blobtouched ++; //Wie oft die Wand berührt wurde
         }
         function blobAnWandAngekommenZwei(){
-            blobAnWandZwei = 1; //Wenn das erste mal eine Wand berührt wird
+            blobAnWandZwei = 1; //Wenn das erste Mal eine Wand berührt wird
             blobtouchedZwei ++; //Wie oft die Wand berührt wurde
             // function
         }
         function monsterAnWandAngekommen(){
-                monsterAnWand = 1; //Wenn das erste mal eine Wand berührt wird
+                monsterAnWand = 1; //Wenn das erste Mal eine Wand berührt wird
                 monstertouched ++; //Wie oft die Wand berührt wurde
 
         }
@@ -329,6 +330,7 @@ class ZweiterDungeon extends Phaser.Scene {
             blob.setVelocityX(160);
         }
 
+        //Cursor events für den Spieler
         if (cursors.left.isDown)
         {
             walking = true;

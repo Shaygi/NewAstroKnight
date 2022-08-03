@@ -60,7 +60,7 @@ class ErsterDungeon extends Phaser.Scene{
             physics: { //physics überschreiben
                 default: 'arcade',
                 arcade: {
-                    gravity: {y: 0}, //Schwerkraft auf 0, weil wir ein Topdown Dungeon haben
+                    gravity: {y: 0}, //Gravitation wird überschrieben. Schwerkraft auf 0, weil wir ein Topdown Dungeon haben
                     debug: false
                 }
             }
@@ -376,7 +376,8 @@ class ErsterDungeon extends Phaser.Scene{
         ogonvierzehn.anims.play('walk', true);
         ogonfuenfzehn.anims.play('walk', true);
 
-        touchedTimes = touched % 2;
+        //Die Anzahl an Wandberührungen
+        touchedTimes = touched % 2; // Bewegung der Sprites wird darauf festgelegt, ob die Anzahl an Berührungen mit den Wänden gerade oder ungerade ist.
         touchedzweiTimes = touchedzwei % 2;
         toucheddreiTimes = toucheddrei % 2;
         touchedvierTimes = touchedvier % 2;
@@ -386,13 +387,13 @@ class ErsterDungeon extends Phaser.Scene{
         touchedachtTimes = touchedacht % 2;
 
 
-        if(anWand === 0 && touched === 0 ){
+        if(anWand === 0 && touched === 0 ){//Keine Wand wurde berührt
               ogon.setVelocityX(160);
 
-        }else if (anWand === 1 && touchedTimes > 0){
+        }else if (anWand === 1 && touchedTimes > 0){//wenn die Anzahl an Berührungen größer als 0 ist, also ungerade, läuft das Monster nach links
                 ogon.setVelocityX(-160);
 
-        }else if(anWand === 1 && touchedTimes === 0){
+        }else if(anWand === 1 && touchedTimes === 0){//wenn die Anzahl an Berührungen gleich 0 ist, also gerade, läuft das Monster nach rechts
             ogon.setVelocityX(160);
         }
 
@@ -466,12 +467,12 @@ class ErsterDungeon extends Phaser.Scene{
             ogonneun.setVelocityY(-260);
         }
 
-
-        if (cursors.left.isDown)
+        //Cursor Events
+        if (cursors.left.isDown)//Wenn der linke cursor gedrückt wird, soll die X-Position des Spieler vermindert werden
         {
-            isWalking = true;
-            player.setVelocityX(-160);
-            player.anims.play('left', true);
+            isWalking = true;//prüft ob der Spieler läuft, um den Laufsound abspielen zu können
+            player.setVelocityX(-160);//der Spieler läuft nach links
+            player.anims.play('left', true);//Animation mit dem Key 'left' soll abgespielt werden
 
         }
         else if (cursors.right.isDown)
