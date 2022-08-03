@@ -1,3 +1,4 @@
+// Astroknight JS Code mit allen Scenes
 var config = {
     type: Phaser.AUTO,
     width: 1485,//Größe des Bildschirms

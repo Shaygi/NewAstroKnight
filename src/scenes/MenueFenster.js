@@ -1,3 +1,10 @@
+/**
+ * Zweite Szene, wo Menue -Fenster angezeigt wird.
+ * Von hier kann man auf 'Play' Button drücken, um spielen anzufangen, oder auf
+ * 'Story' Button, wo die Vorgeschichte von Astronaut zur Ansicht verfügbar.
+ */
+
+
 var optionsknopf;
 var menue;
 var playknopf;

@@ -1,25 +1,28 @@
+/**
+ * Zweiter Level, also wie 'Cave - Level' bennant.
+ */
+
+//Variablen
 var cursors;
-var playerzwei;
+var playerzwei; //Astronaut
 var wandLayer;
 var dekoLayer;
 var wasserLayer;
 var ausgangsLayer;
-var blob;
+var blob; //Enemies, mit der Name 'Blob'
 var blobeins;
 var blobzwei;
 var blobdrei;
 var blobvier;
 var blobfuenf;
 var blobsechs;
-var speed;
-var rechtsoderlinks = 0;
-var blobtouched = 0;
+var blobtouched = 0; //Variablen, die für Kollision benutzt wurden.
 var blobTouchedTimes = 0;
 var blobtouchedZwei = 0;
 var blobTouchedTimesZwei = 0;
 var blobAnWand = 0;
 var blobAnWandZwei = 0;
-var energyfuenf;
+var energyfuenf;  //Weitere Energiekerne
 var energysechs;
 var energysieben;
 var energyacht;
@@ -28,11 +31,12 @@ var gesammeltzwei = 0;
 var walking = false;
 var steptwo;
 var blobsplash;
-var grunerMonster;
+var grunerMonster; // Noch paar Enemies 'gruner Monster'
 var grunerMonsterEins;
 var monstertouched = 0;
 var monsterAnWand = 0;
 var monsterTouchedTimes = 0;
+
 class ZweiterDungeon extends Phaser.Scene {
 
     constructor() {
@@ -47,6 +51,9 @@ class ZweiterDungeon extends Phaser.Scene {
         });
     }
 
+    /*
+    Preload
+     */
     preload() {
         //Inhalte laden
         this.load.image("terrain", "assets/tilemaps/tiles.png"); //Tileset
@@ -59,12 +66,17 @@ class ZweiterDungeon extends Phaser.Scene {
         this.load.spritesheet('grunerMonster', 'assets/grunMon.png', { frameWidth: 512, frameHeight:512});
     }
 
+    /*
+      Create
+     */
     create() {
 
         grunerMonster = this.physics.add.sprite(1700, 390, 'grunerMonster').setScale(0.11);
         grunerMonsterEins = this.physics.add.sprite(1940, 850, 'grunerMonster').setScale(0.11);
         steptwo = this.sound.add("steptwo",{loop:true, volume: 1});
         blobsplash = this.sound.add("splash",{loop:true, volume: 0.2});
+
+        //Funktionen, um Energies einzusammeln.
         function sammelnfuenf(){
             energyfuenf.destroy();//Energiekern wird entfernt
             ding.play();//sound wird abgespielt
@@ -91,6 +103,7 @@ class ZweiterDungeon extends Phaser.Scene {
             gesammeltzwei++;
         }
 
+        //Kolission Funktionen
         function blobAnWandAngekommen(){
             blobAnWand = 1; //Wenn das erste Mal eine Wand berührt wird
             blobtouched ++; //Wie oft die Wand berührt wurde
@@ -105,14 +118,18 @@ class ZweiterDungeon extends Phaser.Scene {
                 monstertouched ++; //Wie oft die Wand berührt wurde
 
         }
-
+        //Wenn alle Energiekerne gesammelt sind und der Astronaut den Ausgang erreicht, wird er zum nächsten Level weitergeleitet.
         function naechstesLevel(){
-           // if(gesammeltzwei === 5){
+                //nicht zum dritten Level zugehörige sounds werden stummgestellt
                 steptwo.stop();
                 blobsplash.stop();
-                this.scene.start('DritterDungeon');
-          //  }
+                this.scene.start('DritterDungeon');//nächste Szene wird aufgerufen
         }
+
+        /*
+        Funktion 'gestorben'.
+        Wenn der Astronaut stirb, kehrt er zurück zum Anfang des Levels.
+         */
         function gestorben(){
             gesammeltzwei = 0;
             steptwo.stop();
@@ -255,6 +272,7 @@ class ZweiterDungeon extends Phaser.Scene {
             repeat: -1
         });
 
+        //Kollisions
         this.physics.add.collider(playerzwei, grunerMonster, gestorben, null, this);
         this.physics.add.collider(playerzwei, grunerMonsterEins, gestorben, null, this);
 
@@ -274,6 +292,7 @@ class ZweiterDungeon extends Phaser.Scene {
 
         ausgangsLayer.setCollisionBetween(0, 200);
 
+        //Audios
         steptwo.play();
         blobsplash.play();
     }
@@ -293,7 +312,7 @@ class ZweiterDungeon extends Phaser.Scene {
         //grunerMonster.anims.play('grunerMonster',true);
         //grunerMonsterEins.anims.play('grunerMonster',true);
 
-        if(monsterAnWand=== 0 && monstertouched === 0){
+        if(monsterAnWand=== 0 && monstertouched === 0){//Keine Wand wurde berührt
             grunerMonsterEins.setVelocityY(160);
             grunerMonsterEins.anims.play('mOben',true);
             grunerMonster.setVelocityY(160);
@@ -311,7 +330,7 @@ class ZweiterDungeon extends Phaser.Scene {
         }
 
 
-        if(blobAnWand === 0 && blobtouched === 0 ){
+        if(blobAnWand === 0 && blobtouched === 0 ){//Keine Wand wurde berührt
             blobvier.setVelocityY(160);
             blobvier.anims.play('blub', true);
         }else if (blobAnWand === 1 && blobTouchedTimes > 0){
@@ -322,7 +341,7 @@ class ZweiterDungeon extends Phaser.Scene {
             blobvier.anims.play('blub', true);
         }
 
-        if(blobAnWandZwei === 0 && blobtouchedZwei === 0 ){
+        if(blobAnWandZwei === 0 && blobtouchedZwei === 0 ){//Keine Wand wurde berührt
             blob.setVelocityX(160);
         }else if (blobAnWandZwei === 1 && blobTouchedTimesZwei > 0){
             blob.setVelocityX(-160);

@@ -1,7 +1,15 @@
+/**
+ * Szene, in der das Spiel geladen wird. Nachdem wird Cat-Logo gezeigt.
+ */
+
+
+
+//Variablen
 var catlogo;
 var starttext;
 var backgroundSong;
 var storySound;
+
 class LadeFenster extends Phaser.Scene {
 
     constructor() {

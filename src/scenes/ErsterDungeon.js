@@ -1,10 +1,13 @@
+/**
+    Erster Level, der "Lava " heißt.
+ **/
 var cursors;
 var player; //Spieler
-var energy;
+var energy; //Energies, die Astronaut einsammeln muss.
 var energytwo;
 var energythree;
 var energyfour;
-var ogon;// Monster
+var ogon;// Monsters 'Ogonis'
 var ogoneins;
 var ogonzwei;
 var ogondrei;
@@ -45,7 +48,7 @@ var touchedsiebenTimes = 0;
 var touchedachtTimes = 0;
 var touchedTimes = 0;
 var gesammelt = 0;
-var ding;
+var ding; // Variablen für Audio
 var lava;
 var burned;
 var next;
@@ -94,6 +97,7 @@ class ErsterDungeon extends Phaser.Scene{
         step = this.sound.add("step",{loop:true, volume: 1});
         bgMusic = this.sound.add("bgMusic",{loop:true, volume: 0.2});
 
+        //Funktionen um Energies einzusammeln.
         function sammeln(){
             energy.destroy();
             ding.play();
@@ -115,6 +119,10 @@ class ErsterDungeon extends Phaser.Scene{
             gesammelt++;
         }
 
+        /*
+        Funktion 'gestorben'.
+        Wenn Astronaut stirb , er kehrt zurück zum Anfang des Levels.
+         */
         function gestorben(){
             this.scene.start('ErsterDungeon');
             gesammelt = 0;
@@ -125,6 +133,8 @@ class ErsterDungeon extends Phaser.Scene{
             this.sound.get('step').stop();
         }
 
+
+        //Wenn alle Energies gesammelt sind und Astronaut den Ausgang erreicht, wird er zum nächsten Level weitergeleitet.
         function naechstesLevel(){
             //if(gesammelt === 4) {
                 next.play();
@@ -136,7 +146,7 @@ class ErsterDungeon extends Phaser.Scene{
                 this.scene.start('ZweiterDungeon'); //Starts next Scene
             //}
         }
-
+        //Hinweis für Spieler
         this.add.text(100, 100, "Sammle alle Energiekerne deines Raumschiffes!");
         //Map key
         const dungeon2 = this.make.tilemap({ key: "dungeon2" });
@@ -358,7 +368,7 @@ class ErsterDungeon extends Phaser.Scene{
     }
 
     update(){
-
+        //Hier werden alle Spritesheets zur Bewegung gebracht.
         ogon.anims.play('walk', true);
         ogoneins.anims.play('walk', true);
         ogonzwei.anims.play('walk', true);

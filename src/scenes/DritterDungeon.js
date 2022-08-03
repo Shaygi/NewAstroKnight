@@ -1,6 +1,11 @@
+/**
+ * Dritter und letzer  Level, Jump and Run Spiel.
+ */
+
+
 //Variablen
 var cursors;
-var player;
+var player; //Astronaut
 var bodenLayer;
 var baumLayer;
 var platformLayer;
@@ -8,7 +13,7 @@ var todesLayer;
 var blumeeins;
 var blumezwei;
 var blumedrei;
-var energyzehn;
+var energyzehn; //Energies
 var energyelf;
 var energyzwoelf;
 var energydreizehn;
@@ -22,9 +27,9 @@ var energyzwanzig;
 var unsichtbareGrenzeLayer;
 var jumpCount= 0;
 var gesammeltdrei = 0;
-var boss;
+var boss; //Boss Monster
 var miniboss;
-var raumschiff;
+var raumschiff; //Raumschiff von Astronaut
 var jump;
 var eatenAlive;
 var stepthree;
@@ -70,6 +75,10 @@ class DritterDungeon extends Phaser.Scene {
         stepthree = this.sound.add("stepthree",{loop:true});
         forest = this.sound.add("forest",{loop:true, volume: 0.5});
 
+        /*
+        Funktion 'Gewonnen'. Wenn alle Energiekerne gesammelt sind,
+        hat der Spieler gewonnen, wenn nicht, dann verliert er.
+         */
         function gewonnen(){
 
             if (gesammeltdrei === 11){
@@ -85,6 +94,7 @@ class DritterDungeon extends Phaser.Scene {
             }
         }
 
+        //Einsammeln von Energiekernen Funktionen.
         function sammelnzehn(){
             ding.play();
             energyzehn.destroy();
@@ -140,12 +150,18 @@ class DritterDungeon extends Phaser.Scene {
             energyzwanzig.destroy();
             gesammeltdrei++;
         }
+
+        /*
+        Funktion 'Gestorben'. der Spieler wird zum Anfang zurückversetzt.
+         */
         function gestorben(){
             gesammeltdrei = 0;//Anzahl an gesammelten Kernen wird auf 0 zurückgesetzt
             eatenAlive.play();//Sound wird abgespielt
             forest.stop();//sound wird gestoppt um eine Verdopplung der Musik zu vermeiden
             this.scene.start('DritterDungeon');//Szene wird von vorne abgespielt
         }
+
+        //Hintergrundbilder des Tilesets
         this.add.image(2500, 300, 'background').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background2').setScale(25).setDepth(-2);
         this.add.image(2500, 100, 'background3').setScale(25).setDepth(-2);
@@ -337,6 +353,7 @@ class DritterDungeon extends Phaser.Scene {
         stepthree.play();
         forest.play();
     }
+
     //Update Funktion
     update() {
         //Fleischfressende Pflanzen und Bossmonster werden animiert
