@@ -1,5 +1,5 @@
+//Variablen
 var cursors;
-var space;
 var player;
 var bodenLayer;
 var baumLayer;
@@ -16,20 +16,23 @@ var energyvierzehn;
 var energyfuenfzehn;
 var energysechzehn;
 var energysiebzehn;
+var energyachtzehn;
+var energyneunzehn;
+var energyzwanzig;
 var unsichtbareGrenzeLayer;
-var canDoubleJump = true;
 var jumpCount= 0;
 var gesammeltdrei = 0;
 var boss;
+var miniboss;
 var raumschiff;
 var jump;
 var eatenAlive;
 var stepthree;
 var forest;
 var onGrass = false;
-
+//Klasse die von Phaser.Scene abgeleitet wird
 class DritterDungeon extends Phaser.Scene {
-
+    //Konstruktor
     constructor() {
 
         super({
@@ -37,8 +40,9 @@ class DritterDungeon extends Phaser.Scene {
         });
 
     }
-
+    //preload Funktion
     preload() {
+        //Alle Inhalte werden geladen
         this.load.image('background', "assets/tilemaps/dritterDungeonBackground1.png");
         this.load.image('background2', "assets/tilemaps/dritterDungeonBackground2.png");
         this.load.image('background3', "assets/tilemaps/dritterDungeonBackground3.png");
@@ -58,8 +62,9 @@ class DritterDungeon extends Phaser.Scene {
         this.load.audio('stepthree', "assets/sound/stepthree.wav");
         this.load.audio('forest', "assets/sound/forest.wav");
     }
-
+    //Create Funktion
     create() {
+        //Sounds werden Variablen zugeteilt, um diese im Code wiederverwenden zu können
         jump = this.sound.add("jump",{loop:false, volume: 0.2});
         eatenAlive = this.sound.add("eaten",{loop:false});
         stepthree = this.sound.add("stepthree",{loop:true});
@@ -69,7 +74,7 @@ class DritterDungeon extends Phaser.Scene {
             boss.setVelocityX(0);
             boss.setVelocityY(0);
 
-            if (gesammeltdrei === 8){
+            if (gesammeltdrei === 11){
                 stepthree.stop();
                 forest.stop();
                 bgMusic.stop();
@@ -122,6 +127,21 @@ class DritterDungeon extends Phaser.Scene {
             energysiebzehn.destroy();
             gesammeltdrei++;
         }
+        function sammelnachtzehn(){
+            ding.play();
+            energyachtzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnneunzehn(){
+            ding.play();
+            energyneunzehn.destroy();
+            gesammeltdrei++;
+        }
+        function sammelnzwanzig(){
+            ding.play();
+            energyzwanzig.destroy();
+            gesammeltdrei++;
+        }
         function gestorben(){
             gesammeltdrei = 0;
             eatenAlive.play();
@@ -151,6 +171,7 @@ class DritterDungeon extends Phaser.Scene {
         blumezwei = this.physics.add.sprite(870, 450, 'blume').setScale(0.11);
         blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.180);
 
+        //Energiekerne schaffen, platzieren und skalieren
         energyzehn = this.physics.add.sprite(670, 150, 'energy').setScale( 0.05);
         energyelf = this.physics.add.sprite(3445, 150, 'energy').setScale( 0.05);
         energyzwoelf = this.physics.add.sprite(1070, 150, 'energy').setScale( 0.05);
@@ -159,17 +180,30 @@ class DritterDungeon extends Phaser.Scene {
         energyfuenfzehn = this.physics.add.sprite(420, 150, 'energy').setScale( 0.05);
         energysechzehn= this.physics.add.sprite(750, 150, 'energy').setScale( 0.05);
         energysiebzehn= this.physics.add.sprite(1750, 650, 'energy').setScale( 0.05);
+        energyachtzehn= this.physics.add.sprite(3000, 150, 'energy').setScale( 0.05);
+        energyneunzehn= this.physics.add.sprite(3150, 150, 'energy').setScale( 0.05);
+        energyzwanzig= this.physics.add.sprite(2850, 150, 'energy').setScale( 0.05);
 
+        //Boss schaffen, platzieren und skalieren
         boss = this.physics.add.sprite(4100,250, 'boss').setScale(0.48);
+        miniboss = this.physics.add.sprite(2780,350, 'boss').setScale(0.28);
+        //Boss Sprite Body größe ändern, sodass er nicht mit dem Boden überlappt
         boss.body.setSize(400,440);
-
+        miniboss.body.setSize(400,440);
+        //Raumschiff schaffen, platzieren und skalieren
         raumschiff = this.physics.add.sprite(3750, 250, 'raumschiff').setScale( 0.27);
+        //Raumschiff Sprite Body größe ändern, sodass es nicht mit dem Boden überlappt
         raumschiff.body.setSize(-10,440);
-        player = this.physics.add.sprite(50,470, 'astro3').setScale(0.08);//50
+        //Spieler erzeugen, platzieren und skalieren
+        player = this.physics.add.sprite(50,470, 'astro3').setScale(0.08);
+        //Text am Ende des Levels
         this.add.text(3200, 300, "Da ist dein Rauschiff!! Hast du alle Energiekerne gesammelt?\n               Wenn nicht, könnte es wieder abstürzen.\n                      Pass gut auf dich auf!");
+        //Kamera soll dem Spieler folgen
         this.cameras.main.startFollow(player);
+        //Roundpixels, um Tilebleeding zu vermeiden (hat hier keinen Effekt)
         this.cameras.main.roundPixels = true;
 
+        //Animationen
         this.anims.create({
             key:'bossAngriff',
             frames: this.anims.generateFrameNumbers('boss', {start: 0, end: 7}),
@@ -229,9 +263,10 @@ class DritterDungeon extends Phaser.Scene {
             repeat: -1
         });
 
-        //  Input Events
+        //Input Events
         cursors = this.input.keyboard.createCursorKeys();
 
+        //Kollisionen
         this.physics.add.collider(player, bodenLayer);
         this.physics.add.collider(blumeeins, bodenLayer);
         this.physics.add.collider(blumezwei, bodenLayer);
@@ -241,10 +276,12 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(player, platformLayer);
         platformLayer.setCollisionBetween(0, 197);
 
+        //Kollision, die eine Methode ausführt
         this.physics.add.collider(player, todesLayer, gestorben, null, this)
         this.physics.add.collider(player, blumeeins, gestorben, null, this);
         this.physics.add.collider(player, blumezwei, gestorben, null, this);
         this.physics.add.collider(player, blumedrei, gestorben, null, this);
+        this.physics.add.collider(player, miniboss, gestorben, null, this);
         todesLayer.setCollisionBetween(22, 64);
 
         this.physics.add.collider(player, unsichtbareGrenzeLayer);
@@ -261,12 +298,16 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(player, energyfuenfzehn, sammelnfuenfzehn, null, this);
         this.physics.add.collider(player, energysechzehn, sammelnsechzehn, null, this);
         this.physics.add.collider(player, energysiebzehn, sammelnsiebzehn, null, this);
+        this.physics.add.collider(player, energyachtzehn, sammelnachtzehn, null, this);
+        this.physics.add.collider(player, energyneunzehn, sammelnneunzehn, null, this);
+        this.physics.add.collider(player, energyzwanzig, sammelnzwanzig, null, this);
 
         this.physics.add.collider(boss, bodenLayer);
+        this.physics.add.collider(miniboss, bodenLayer);
 
         this.physics.add.collider(raumschiff, bodenLayer);
         this.physics.add.collider(player, raumschiff, gewonnen, null, this);
-        this.physics.add.collider(bullets, boss, getroffen, null, this);
+
 
         this.physics.add.collider(energyzehn, bodenLayer);
         this.physics.add.collider(energyelf, bodenLayer);
@@ -276,6 +317,10 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(energyfuenfzehn, bodenLayer);
         this.physics.add.collider(energysechzehn, bodenLayer);
         this.physics.add.collider(energysiebzehn, bodenLayer);
+        this.physics.add.collider(energyachtzehn, bodenLayer);
+        this.physics.add.collider(energyneunzehn, bodenLayer);
+        this.physics.add.collider(energyzwanzig, bodenLayer);
+
         this.physics.add.collider(energyzehn, platformLayer);
         this.physics.add.collider(energyelf, platformLayer);
         this.physics.add.collider(energyzwoelf, platformLayer);
@@ -284,10 +329,15 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(energyfuenfzehn, platformLayer);
         this.physics.add.collider(energysechzehn, platformLayer);
         this.physics.add.collider(energysiebzehn, platformLayer);
+        this.physics.add.collider(energyachtzehn, platformLayer);
+        this.physics.add.collider(energyneunzehn, platformLayer);
+        this.physics.add.collider(energyzwanzig, platformLayer);
+
+        //Sounds werden abgespielt
         stepthree.play();
         forest.play();
     }
-
+    //Update Funktion
     update() {
 
         blumeeins.anims.play('devour', true);
@@ -295,6 +345,7 @@ class DritterDungeon extends Phaser.Scene {
         blumedrei.anims.play('devour', true);
 
         boss.anims.play('bossAngriff', true);
+        miniboss.anims.play('bossAngriff', true);
         const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up);
 
         if (cursors.left.isDown)

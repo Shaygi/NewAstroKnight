@@ -106,11 +106,11 @@ class ZweiterDungeon extends Phaser.Scene {
         }
 
         function naechstesLevel(){
-            if(gesammeltzwei === 5){
+           // if(gesammeltzwei === 5){
                 steptwo.stop();
                 blobsplash.stop();
                 this.scene.start('DritterDungeon');
-            }
+          //  }
         }
         function gestorben(){
             gesammeltzwei = 0;

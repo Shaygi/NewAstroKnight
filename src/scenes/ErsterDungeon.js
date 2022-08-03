@@ -126,7 +126,7 @@ class ErsterDungeon extends Phaser.Scene{
         }
 
         function naechstesLevel(){
-            if(gesammelt === 4) {
+            //if(gesammelt === 4) {
                 next.play();
                 step.stop();
                 lava.stop();
@@ -134,7 +134,7 @@ class ErsterDungeon extends Phaser.Scene{
                 this.sound.get('lava').stop();
                 this.sound.get('step').stop();
                 this.scene.start('ZweiterDungeon'); //Starts next Scene
-            }
+            //}
         }
 
         this.add.text(100, 100, "Sammle alle Energiekerne deines Raumschiffes!");
