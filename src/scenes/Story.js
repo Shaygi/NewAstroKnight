@@ -18,7 +18,6 @@ class Story extends Phaser.Scene {
         this.load.video('story', 'assets/video/beginning.mp4');
     }
     create(){
-
         storyVid =  this.add.video(750, 350, 'story').setScale(2.5);
         storyVid.play(true);
 
