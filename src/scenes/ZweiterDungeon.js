@@ -121,9 +121,11 @@ class ZweiterDungeon extends Phaser.Scene {
         //Wenn alle Energiekerne gesammelt sind und der Astronaut den Ausgang erreicht, wird er zum nächsten Level weitergeleitet.
         function naechstesLevel(){
                 //nicht zum dritten Level zugehörige sounds werden stummgestellt
+            if(gesammeltzwei === 5) {
                 steptwo.stop();
                 blobsplash.stop();
                 this.scene.start('DritterDungeon');//nächste Szene wird aufgerufen
+            }
         }
 
         /*
@@ -134,7 +136,6 @@ class ZweiterDungeon extends Phaser.Scene {
             gesammeltzwei = 0;
             steptwo.stop();
             blobsplash.stop();
-
             this.scene.start('ZweiterDungeon');
         }
         const dungeon = this.make.tilemap({ key: "dungeon" });

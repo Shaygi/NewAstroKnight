@@ -136,7 +136,7 @@ class ErsterDungeon extends Phaser.Scene{
 
         //Wenn alle Energies gesammelt sind und Astronaut den Ausgang erreicht, wird er zum nächsten Level weitergeleitet.
         function naechstesLevel(){
-            //if(gesammelt === 4) {
+            if(gesammelt === 4) {
                 next.play();
                 step.stop();
                 lava.stop();
@@ -144,7 +144,7 @@ class ErsterDungeon extends Phaser.Scene{
                 this.sound.get('lava').stop();
                 this.sound.get('step').stop();
                 this.scene.start('ZweiterDungeon'); //Starts next Scene
-            //}
+            }
         }
         //Hinweis für Spieler
         this.add.text(100, 100, "Sammle alle Energiekerne deines Raumschiffes!");

@@ -13,6 +13,7 @@ var todesLayer;
 var blumeeins;
 var blumezwei;
 var blumedrei;
+var blumevier;
 var energyzehn; //Energies
 var energyelf;
 var energyzwoelf;
@@ -185,7 +186,8 @@ class DritterDungeon extends Phaser.Scene {
 
         blumeeins = this.physics.add.sprite(483.5, 450, 'blume').setScale(0.11);
         blumezwei = this.physics.add.sprite(870, 450, 'blume').setScale(0.11);
-        blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.180);
+        blumedrei = this.physics.add.sprite(1555, 650, 'blume').setScale(0.18);
+        blumevier = this.physics.add.sprite(3050, 450, 'blume').setScale(0.11);
 
         //Energiekerne schaffen, platzieren und skalieren
         energyzehn = this.physics.add.sprite(670, 150, 'energy').setScale( 0.05);
@@ -211,7 +213,7 @@ class DritterDungeon extends Phaser.Scene {
         //Raumschiff Sprite Body größe ändern, sodass es nicht mit dem Boden überlappt
         raumschiff.body.setSize(-10,440);
         //Spieler erzeugen, platzieren und skalieren
-        player = this.physics.add.sprite(50,470, 'astro3').setScale(0.08);
+        player = this.physics.add.sprite(50,470 , 'astro3').setScale(0.08);
         //Text am Ende des Levels
         this.add.text(3200, 300, "Da ist dein Rauschiff!! Hast du alle Energiekerne gesammelt?\n               Wenn nicht, könnte es wieder abstürzen.\n                      Pass gut auf dich auf!");
         //Kamera soll dem Spieler folgen
@@ -287,6 +289,7 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(blumeeins, bodenLayer);
         this.physics.add.collider(blumezwei, bodenLayer);
         this.physics.add.collider(blumedrei, bodenLayer);
+        this.physics.add.collider(blumevier, bodenLayer);
         bodenLayer.setCollisionBetween(0, 197);
 
         this.physics.add.collider(player, platformLayer);
@@ -297,6 +300,7 @@ class DritterDungeon extends Phaser.Scene {
         this.physics.add.collider(player, blumeeins, gestorben, null, this);
         this.physics.add.collider(player, blumezwei, gestorben, null, this);
         this.physics.add.collider(player, blumedrei, gestorben, null, this);
+        this.physics.add.collider(player, blumevier, gestorben, null, this);
         this.physics.add.collider(player, miniboss, gestorben, null, this);
         todesLayer.setCollisionBetween(22, 64);
 
@@ -360,6 +364,7 @@ class DritterDungeon extends Phaser.Scene {
         blumeeins.anims.play('devour', true);
         blumezwei.anims.play('devour', true);
         blumedrei.anims.play('devour', true);
+        blumevier.anims.play('devour', true);
 
         boss.anims.play('bossAngriff', true);
         miniboss.anims.play('bossAngriff', true);

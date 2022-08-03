@@ -3,24 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" name="Changes" comment="sound">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/LadeFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LadeFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/MenueFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenueFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/Story.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Story.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
     </list>
-    <list id="467a835c-5386-406f-b7d0-2514e2aadfde" name="Changes by dinara" comment="Changes by dinara">
-      <change beforePath="$PROJECT_DIR$/src/Astroknight.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Astroknight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/astroknight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/astroknight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/DritterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ErsterDungeon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/LadeFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/LadeFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/MenueFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/MenueFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js" afterDir="false" />
-    </list>
+    <list id="467a835c-5386-406f-b7d0-2514e2aadfde" name="Changes by dinara" comment="fertig" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,143 +22,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/scenes/ZweiterDungeon.js">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="5" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="1" end1="2" start2="6" end2="7" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="6" end1="7" start2="11" end2="12" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="13" end1="16" start2="18" end2="19" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="21" end1="22" start2="24" end2="25" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="30" end1="31" start2="33" end2="34" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="35" end1="35" start2="38" end2="39" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="42" end1="43" start2="46" end2="47" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="49" end1="49" start2="53" end2="56" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="50" end1="50" start2="57" end2="58" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="60" end1="60" start2="68" end2="71" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="66" end1="66" start2="77" end2="79" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="67" end1="70" start2="80" end2="83" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="92" end1="92" start2="105" end2="106" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="93" end1="94" start2="107" end2="108" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="97" end1="98" start2="111" end2="112" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="102" end1="103" start2="116" end2="117" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="106" end1="107" start2="120" end2="121" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="108" end1="109" start2="122" end2="123" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="111" end1="113" start2="125" end2="126" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="114" end1="114" start2="127" end2="132" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="256" end1="256" start2="274" end2="275" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="275" end1="275" start2="294" end2="295" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="294" end1="295" start2="314" end2="315" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="312" end1="313" start2="332" end2="333" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="323" end1="324" start2="343" end2="344" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="331" end1="331" start2="351" end2="352" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/Astroknight.html">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="1" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="12" end1="12" start2="13" end2="14" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="21" end1="21" start2="23" end2="24" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/astroknight.js">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="1" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="2" end1="3" start2="3" end2="4" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="8" end1="9" start2="9" end2="10" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/scenes/ErsterDungeon.js">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="3" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="2" end1="3" start2="5" end2="6" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="6" end1="7" start2="9" end2="10" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="47" end1="48" start2="50" end2="51" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="62" end1="63" start2="65" end2="66" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="96" end1="96" start2="99" end2="100" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="117" end1="117" start2="121" end2="125" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="127" end1="127" start2="135" end2="137" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="138" end1="139" start2="148" end2="149" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="360" end1="361" start2="370" end2="371" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="378" end1="379" start2="388" end2="390" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="388" end1="389" start2="399" end2="400" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="391" end1="392" start2="402" end2="403" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="394" end1="395" start2="405" end2="406" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="468" end1="470" start2="479" end2="481" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="471" end1="474" start2="482" end2="485" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/scenes/LadeFenster.js">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="7" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="4" end1="4" start2="11" end2="12" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="9" end1="11" start2="17" end2="18" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="12" end1="12" start2="19" end2="20" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="14" end1="14" start2="22" end2="23" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="16" end1="16" start2="25" end2="26" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="17" end1="17" start2="27" end2="28" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="19" end1="19" start2="30" end2="31" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="21" end1="21" start2="33" end2="34" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="30" end1="30" start2="43" end2="44" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="32" end1="32" start2="46" end2="47" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="43" end1="43" start2="58" end2="59" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="49" end1="50" start2="65" end2="66" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="57" end1="58" start2="73" end2="74" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="66" end1="66" start2="82" end2="83" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="69" end1="69" start2="86" end2="87" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="70" end1="70" start2="88" end2="89" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="71" end1="72" start2="90" end2="92" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="74" end1="74" start2="94" end2="95" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="76" end1="79" start2="97" end2="97" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="81" end1="81" start2="99" end2="100" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="83" end1="87" start2="102" end2="102" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/scenes/DritterDungeon.js">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="5" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="2" end1="3" start2="7" end2="8" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="10" end1="11" start2="15" end2="16" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="24" end1="25" start2="29" end2="30" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="26" end1="27" start2="31" end2="32" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="36" end1="37" start2="41" end2="42" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="72" end1="72" start2="77" end2="81" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="73" end1="75" start2="82" end2="82" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="89" end1="89" start2="96" end2="97" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="144" end1="144" start2="152" end2="156" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="145" end1="149" start2="157" end2="161" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="150" end1="150" start2="162" end2="164" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="154" end1="154" start2="168" end2="169" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="157" end1="157" start2="172" end2="173" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="339" end1="339" start2="355" end2="356" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="341" end1="342" start2="358" end2="359" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="348" end1="348" start2="365" end2="366" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="350" end1="350" start2="368" end2="369" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="354" end1="359" start2="373" end2="373" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="365" end1="366" start2="379" end2="380" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="377" end1="378" start2="391" end2="392" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="379" end1="380" start2="393" end2="394" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="382" end1="383" start2="396" end2="397" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/scenes/MenueFenster.js">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="7" changelist="467a835c-5386-406f-b7d0-2514e2aadfde" />
-        <range start1="21" end1="22" start2="28" end2="29" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="30" end1="31" start2="37" end2="38" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="32" end1="32" start2="39" end2="40" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="38" end1="38" start2="46" end2="47" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="39" end1="39" start2="48" end2="49" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="43" end1="43" start2="53" end2="54" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="46" end1="47" start2="57" end2="59" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="49" end1="50" start2="61" end2="62" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="51" end1="51" start2="63" end2="64" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="53" end1="54" start2="66" end2="67" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="55" end1="58" start2="68" end2="68" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-        <range start1="59" end1="59" start2="69" end2="70" changelist="35c53c5c-de7e-48d6-91e3-c2bb9adcb33e" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -240,7 +90,7 @@
       <workItem from="1659278592200" duration="2226000" />
       <workItem from="1659445613043" duration="9679000" />
       <workItem from="1659466907674" duration="6647000" />
-      <workItem from="1659513639849" duration="8643000" />
+      <workItem from="1659513639849" duration="9455000" />
     </task>
     <task id="LOCAL-00001" summary="zehnter ogoni">
       <created>1657458493244</created>
@@ -480,7 +330,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659521285947</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="sound">
+      <created>1659525981668</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1659525981668</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fertig">
+      <created>1659525996133</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1659525996133</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,9 +371,9 @@
     <MESSAGE value="Ogoni animation" />
     <MESSAGE value="energy und collsion" />
     <MESSAGE value="fast fertig wuhuhuuuu" />
-    <MESSAGE value="fertig" />
     <MESSAGE value="Changes by dinara" />
     <MESSAGE value="sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="sound" />
+    <MESSAGE value="fertig" />
+    <option name="LAST_COMMIT_MESSAGE" value="fertig" />
   </component>
 </project>
